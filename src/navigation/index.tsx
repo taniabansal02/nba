@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import { ScreenNameKeys } from "../utils/constants/screenKey";
 import Splash from "../screens/splash";
 import Home from "../screens/home";
+import DrawerNavigator from "../components/drawer";
 
 
 const Stack = createStackNavigator();
@@ -25,6 +26,7 @@ const Navigation = () => {
           <Stack.Screen name='ScreenNameKeys.Home' component={Home} options={{headerShown: false}} />
 
             </Stack.Navigator>
+            
             
         </NavigationContainer>
     );

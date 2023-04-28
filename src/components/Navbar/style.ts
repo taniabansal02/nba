@@ -18,5 +18,11 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.lato, 
         fontSize:18, 
         lineHeight:22.5
-    }
+    },
+    banner : {
+        height:"20%", 
+        width:'100%', 
+        resizeMode:'cover', 
+        margin:0
+    },
 })

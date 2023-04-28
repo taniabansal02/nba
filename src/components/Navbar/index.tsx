@@ -1,44 +1,51 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Pressable } from 'react-native';
 import pngIcon, { Icons } from '../../assets/icons';
 import { styles } from './style';
-import { Strings } from '../../strings';
+// import { Strings } from '../../strings';
 import { Image } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import Home from '../../screens/home';
-import { NavigationContainer } from '@react-navigation/native';
-import Players from '../../screens/players';
-import DrawerNavigator from '../drawer';
+import images from '../../assets/images';
+
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+// import Home from '../../screens/home';
+// import { NavigationContainer } from '@react-navigation/native';
+// import Players from '../../screens/players';
+// import DrawerNavigator from '../drawer';
 
 
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
 
-function MyDrawer() {
+// function MyDrawer() {
+//     return (
+//         <NavigationContainer>
+//             <Drawer.Navigator initialRouteName='Home'>
+//                 <Drawer.Screen name="Home" component={Home} />
+//                 <Drawer.Screen name='Players' component={Players} />
+
+//             </Drawer.Navigator>
+//         </NavigationContainer>
+
+//     );
+// }
+
+
+const Navbar = ({navigation}) => {
     return (
-        <NavigationContainer>
-            <Drawer.Navigator initialRouteName='Home'>
-                <Drawer.Screen name="Home" component={Home} />
-                <Drawer.Screen name='Players' component={Players} />
-
-            </Drawer.Navigator>
-        </NavigationContainer>
-
-    );
-}
-
-
-const Navbar = () => {
-    return (
-<View>
-
+<View style={{flex:1}}>
+<Image source={images.banner} style={styles.banner} />
 
         <View style={styles.navbarView}>
 
 
             {/* <View ><Icons.hamburger /></View> */}
-            <TouchableOpacity onPress={() => MyDrawer()} >
-                <Image source={pngIcon.ham} style={{ marginTop: -3 }} />
-            </TouchableOpacity>
+            {/* <TouchableOpacity onPress={() => MyDrawer()} > */}
+            <Pressable onPress={() =>{
+                navigation.openDrawer();
+            }}>
+            <Image source={pngIcon.ham} style={{ marginTop: -3 }} />
+            </Pressable>
+               
+            {/* </TouchableOpacity> */}
 
             
 
@@ -53,11 +60,10 @@ const Navbar = () => {
                 <Icons.dashboard /> */}
         </View>
         {/* <DrawerNavigator /> */}
+        <View>
+            <Text> OTHER UI</Text>
         </View>
-        
-
-
-
+        </View>
     );
 };
 
