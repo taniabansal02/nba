@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 const CustomDrawer = () => {
     return(
         <View style={{backgroundColor:'black', flex:1}} >
-            <Text> CustomDrawer </Text>
+            <Text style={{color:'#fff'}}> CustomDrawer </Text>
         </View>
     );
 };

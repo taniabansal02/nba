@@ -5,7 +5,7 @@ import { styles } from "./style";
 const Players = () => {
     return(
         <View>
-            <Text> Home Page </Text>
+            <Text> Players Page </Text>
         </View>
     );
 };

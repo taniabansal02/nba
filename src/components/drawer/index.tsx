@@ -4,7 +4,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Home from '../../screens/home';
 import Players from '../../screens/players';
 import CustomDrawer from './customDrawer';
-import Navbar from '../Navbar';
+import Navbar from '../navbar';
+import Games from '../../screens/games';
+
 
 
 const Drawer = createDrawerNavigator();
@@ -14,6 +16,7 @@ const DrawerNavigator = () => {
         <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}>
             
             <Drawer.Screen name='Navbar' component={Navbar} options={{headerShown: false}} />
+            <Drawer.Screen name='Games' component={Games}  />
         </Drawer.Navigator>
         // <View>
         //     <Text> Drawer Screen </Text>
