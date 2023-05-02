@@ -1,6 +1,6 @@
 export const Strings = {
    header : {
-      home : 'Home',
+      home : 'HOME',
       games : 'GAMES',
       teams : 'TEAMS',
       players : 'PLAYERS',

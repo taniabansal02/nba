@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import { styles } from './style';
 // import { useQuery } from 'react-query';
 // import axios from 'axios';
@@ -29,24 +29,25 @@ const Navbar = () => {
     //         <Text>{item.city}</Text>
     //     )
     //   }
-    
+
     return (
 
-<View>
-        <View style={styles.navbarView}>
-             <Text>{Strings.header.home}</Text>
-            <Text>{Strings.header.games}</Text>
-            <Text>{Strings.header.teams}</Text>
-            <Text>{Strings.header.players}</Text>
-            <Text>{Strings.header.videos}</Text>
+        <View style={styles.mainView}>
+            <View style={styles.navbarView}>
+                <Text style={styles.headerText}>{Strings.header.home}</Text>
+                <Text style={styles.headerText}>{Strings.header.games}</Text>
+                <Text style={styles.headerText}>{Strings.header.teams}</Text>
+                <Text style={styles.headerText}>{Strings.header.players}</Text>
+                <Text style={styles.headerText}>{Strings.header.videos}</Text>
+            </View>
         </View>
-        
-        {/* <View>
-            <FlatList renderItem={renderItem} data={data.data}></FlatList>
-           
-        </View> */}
-        </View>
-       
+
+        // {/* <View>
+        //     <FlatList renderItem={renderItem} data={data.data}></FlatList>
+
+        // </View> */}
+
+
     );
 };
 
