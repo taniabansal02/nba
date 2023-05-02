@@ -5,29 +5,39 @@ import {createStackNavigator} from '@react-navigation/stack';
 import { ScreenNameKeys } from "../utils/constants/screenKey";
 import Splash from "../screens/splash";
 import Home from "../screens/home";
+import Games from "../screens/games";
+import Teams from "../screens/teams";
 
 
 const Stack = createStackNavigator();
+const BottomTabs = createBottomTabNavigator();
 
 const Navigation = () => {
     const [showSplash, setShowSplash] = useState(true);
 
+    const BottomNavigation = () => {
+      return(
+        <BottomTabs.Navigator >
+          <BottomTabs.Screen component={Home} name={ScreenNameKeys.Home} options={{headerShown: false}}/>
+          <BottomTabs.Screen component={Games} name={ScreenNameKeys.Games} options={{headerShown: false}}/>
+          <BottomTabs.Screen component={Teams} name={ScreenNameKeys.Teams} options={{headerShown: false}}/>
+        </BottomTabs.Navigator>
+      );
+    };
+
     useEffect(()=>{
         setTimeout(()=>{
           setShowSplash(false);
-        }, 4000)
+        }, 2000)
       }, [])
 
     return(
         <NavigationContainer>
             <Stack.Navigator>
-            {showSplash ?  <Stack.Screen name="ScreenNameKeys.Splash" component={Splash} options={{headerShown: false}} /> : null }
-          <Stack.Screen name={ScreenNameKeys.Home} component={Home} options={{headerShown: false}} />
-         
+            {showSplash ?  <Stack.Screen name={ScreenNameKeys.Splash} component={Splash} options={{headerShown: false}} /> : null }
+          {/* <Stack.Screen name={ScreenNameKeys.Home} component={Home} options={{headerShown: false}} /> */}
+          <Stack.Screen name='BottomNavigation' component={BottomNavigation} options={{headerShown: false}} />
             </Stack.Navigator>
-           {/* <RenderDrawer />  */}
-            
-            
         </NavigationContainer>
     );
 };

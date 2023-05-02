@@ -1,5 +1,8 @@
+
 export enum ScreenNameKeys {
     Splash = 'Splash',
     Home = 'Home',
-    Players = 'Players'
+    Players = 'Players',
+    Teams = 'Teams',
+    Games = 'Games',
 }
