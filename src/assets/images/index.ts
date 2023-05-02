@@ -6,7 +6,9 @@ const images = {
     kevin : require('./Kevin.jpg'),
     lebron : require('./lebron.jpg'),
     stephen: require('./stephen.jpg'),
-    vince : require('./Vince.jpg')
+    vince : require('./Vince.jpg'),
+    knick : require('./knickVsHeat.png'),
+    lak : require('./lakVsWar.jpg'),
 };
 
 export default images;

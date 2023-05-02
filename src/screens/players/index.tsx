@@ -1,12 +1,20 @@
 import React from "react";
-import { View, Text } from 'react-native';
+import { View, Text , ScrollView, TextInput} from 'react-native';
 import { styles } from "./style";
 
 const Players = () => {
     return(
-        <View>
-            <Text> Players Page </Text>
+       <ScrollView style={{backgroundColor:'black'}}>
+        <View style={{backgroundColor: '#191c23'}}>
+
+        <TextInput placeholder="Search" placeholderTextColor={'#8a8b93'} />
         </View>
+
+       
+        
+        
+
+       </ScrollView>
     );
 };
 
