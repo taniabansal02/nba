@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, FlatList, Image } from 'react-native';
 import images from "../../../../assets/images";
 
-const PlayerData = () => {
+const TopPlayerData = () => {
      /* Top Players Data  */
   
   const topPlayers = [
@@ -71,4 +71,4 @@ const PlayerData = () => {
 
 };
 
-export default PlayerData;
+export default TopPlayerData;

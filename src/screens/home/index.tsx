@@ -1,50 +1,19 @@
 import React, {useEffect} from 'react';
 import {View, Text, FlatList, ScrollView} from 'react-native';
 import {styles} from './style';
-import Navbar from '../../components/Navbar';
+
 // import axios from 'axios';
 import images from '../../assets/images';
 import {Image} from 'react-native';
 import {useQuery} from 'react-query';
 import axios from 'axios';
 import Swiper from 'react-native-swiper';
-import PlayerData from './components/TopPlayers';
+import TopPlayerData from './components/TopPlayers';
+import Navbar from '../../components/navbar';
 
 const Home = () => {
   
-    /* Top Players Data  */
-  
-  const topPlayers = [
-    {
-      name: 'Stephen Curry',
-      image: images.stephen,
-    },
-    {
-      name: 'Lebron James',
-      image: images.lebron,
-    },
-    {
-      name: 'Kevin Durant',
-      image: images.james,
-    },
-    {
-      name: 'Carmelo',
-      image: images.carmelo,
-    },
-    {
-      name: 'Vince Carter',
-      image: images.vince,
-    },
-    {
-      name: 'Blake Griffin',
-      image: images.blake,
-    },
-    {
-      name: 'Kevin Love',
-      image: images.kevin,
-    },
-  ];
-
+ 
   {
     /* One to One matches  */
   }
@@ -57,33 +26,17 @@ const Home = () => {
     },
   ];
 
-  const renderTopPlayers = ({item}) => {
-    return (
-      <View
-        style={{flex: 1, alignItems: 'center', marginTop: 10, marginLeft: 11, backgroundColor:'green', height:120}}>
-        <Image
-          style={{
-            height: 90,
-            width: 90,
-            borderRadius: 50,
-            borderWidth: 2,
-            borderColor: '#961a31',
-          }}
-          source={item.image}
-        />
-        <Text style={{marginTop: 5, justifyContent: 'center', color: 'white'}}>
-          {item.name}
-        </Text>
-      </View>
-    );
-  };
+  
 
 
 
   return (
     <ScrollView style={{flex:1,  backgroundColor:'black',}}>
       
+       {/* ******************* Banner ********************* */}
       <Image source={images.banner} style={styles.banner} />
+
+      {/* ******************* Navbar ********************* */}
       <Navbar />
       <View
         style={{
@@ -92,17 +45,12 @@ const Home = () => {
           marginTop: -6,
         }}></View>
 
-      {/* Leagues  */}
-      {/* <FlatList
-        data={topPlayers}
-        renderItem={renderTopPlayers}
-        horizontal={true}
-      /> */}
-
-      <PlayerData />
+      
+    {/* ******************* Render Top Player Data ********************* */}
+      <TopPlayerData />
      
 
-      {/* Matches  */}
+     {/* ******************* Upcomming Matches ********************* */}
       <Swiper showsButtons autoplay style={{height:400, marginTop:10}}>
          <View style={{flex:1}}>
             <Image style={{height:300, width:"100%"}} source={matches[0].img} />
@@ -121,7 +69,10 @@ const Home = () => {
          </View>
 
       </Swiper>
-      <Text style={{color:'white'}}>hello</Text>
+           {/* <View style={{backgroundColor:'red', height:200, width:'100%'}}>
+                <Text style={{color:'white'}}>hii</Text>
+            </View>
+      <Text style={{color:'white'}}>hello</Text> */}
       {/* <View style={{backgroundColor:'red', height:200, width:'100%'}}>
                 <Text style={{color:'white'}}>hii</Text>
             </View> */}

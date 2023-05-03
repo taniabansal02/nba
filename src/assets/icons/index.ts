@@ -1,16 +1,17 @@
 import leftArrow from './leftArrow.svg';
 import burger from './burger.svg';
-
+import search from './search.svg';
 import hamburger from './hamburger.svg';
 
 export const Icons = {
     leftArrow,
     burger,
-    hamburger
+    
 };
 
 const pngIcon = {
-    ham : require('./ham.png'),
+    search : require('./searc.png'),
+    backArrow : require('./backArrow.png'),
 }
 
 export default pngIcon;
