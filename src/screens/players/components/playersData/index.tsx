@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, Image, Button, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, Button, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import images from "../../../../assets/images";
@@ -7,7 +7,7 @@ import fonts from "../../../../assets/fonts";
 
 const PlayersData = () => {
 
-    {/* ******************* Random colors ********************* */}
+    {/* ******************* Random colors ********************* */ }
     const generateColor = () => {
         const randomColor = Math.floor(Math.random() * 16777215)
             .toString(16)
@@ -15,7 +15,7 @@ const PlayersData = () => {
         return `#${randomColor}`;
     };
 
-    {/* ******************* Players API ********************* */}
+    {/* ******************* Players API ********************* */ }
     const { isLoading, error, data } = useQuery('Players', async () => {
         const res = await axios.get('https://free-nba.p.rapidapi.com/players',
             {
@@ -24,7 +24,7 @@ const PlayersData = () => {
                     per_page: '5130'
                 },
                 headers: {
-                    'X-RapidAPI-Key': '1336fa5b5dmsh54908f008934437p1f95c1jsnf7bfd1a79069',
+                    'X-RapidAPI-Key': 'b92d35722emshdb1f96ecbf0e730p1497f4jsn124949e0a308',
                     'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
                 }
             });
@@ -32,19 +32,24 @@ const PlayersData = () => {
         return res.data;
     });
     if (isLoading) {
-        return <View><Text>Loading...</Text></View>;
+        return (
+            <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+               <ActivityIndicator size='large' />
+            </View>
+            
+        );
     }
     if (error) {
-        return <View><Text>An error has occurred</Text></View>;
+        return <View><Text>An error has occurred : {error.message}</Text></View>;
     }
 
 
     const getPlayers = ({ item }) => {
         return (
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5, backgroundColor: '#191c23', height: 70}}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5, backgroundColor: '#191c23', height: 70 }}>
 
                 {/* ******************* Icons ********************* */}
-                <View style={{ backgroundColor: generateColor(), alignItems: 'center', justifyContent: 'center', height: 50, width: 50, borderRadius: 50, marginLeft:20 }}>
+                <View style={{ backgroundColor: generateColor(), alignItems: 'center', justifyContent: 'center', height: 50, width: 50, borderRadius: 50, marginLeft: 20 }}>
                     <Text style={{ color: 'white', }}>{item.first_name[0] + item.last_name[0]}</Text>
                 </View>
 
