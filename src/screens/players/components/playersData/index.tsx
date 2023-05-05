@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, FlatList, Image, Button, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useQuery } from 'react-query';
 import axios from 'axios';
@@ -7,41 +7,41 @@ import fonts from "../../../../assets/fonts";
 
 const PlayersData = () => {
 
-    {/* ******************* Random colors ********************* */ }
-    const generateColor = () => {
-        const randomColor = Math.floor(Math.random() * 16777215)
-            .toString(16)
-            .padStart(6, '0');
-        return `#${randomColor}`;
-    };
+    // {/* ******************* Random colors ********************* */ }
+    // const generateColor = () => {
+    //     const randomColor = Math.floor(Math.random() * 16777215)
+    //         .toString(16)
+    //         .padStart(6, '0');
+    //     return `#${randomColor}`;
+    // };
 
-    {/* ******************* Players API ********************* */ }
-    const { isLoading, error, data } = useQuery('Players', async () => {
-        const res = await axios.get('https://free-nba.p.rapidapi.com/players',
-            {
-                params: {
-                    page: '0',
-                    per_page: '5130'
-                },
-                headers: {
-                    'X-RapidAPI-Key': 'b92d35722emshdb1f96ecbf0e730p1497f4jsn124949e0a308',
-                    'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
-                }
-            });
-        // console.log(res.data)
-        return res.data;
-    });
-    if (isLoading) {
-        return (
-            <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-               <ActivityIndicator size='large' />
-            </View>
+    // {/* ******************* Players API ********************* */ }
+    // const { isLoading, error, data } = useQuery('Players', async () => {
+    //     const res = await axios.get('https://free-nba.p.rapidapi.com/players',
+    //         {
+    //             params: {
+    //                 page: '0',
+    //                 per_page: '5130'
+    //             },
+    //             headers: {
+    //                 'X-RapidAPI-Key': 'b92d35722emshdb1f96ecbf0e730p1497f4jsn124949e0a308',
+    //                 'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
+    //             }
+    //         });
+    //     console.log(res.data)
+    //     return res.data;
+    // });
+    // if (isLoading) {
+    //     return (
+    //         <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+    //            <ActivityIndicator size='large' color='#5500dc' />
+    //         </View>
             
-        );
-    }
-    if (error) {
-        return <View><Text>An error has occurred : {error.message}</Text></View>;
-    }
+    //     );
+    // }
+    // if (error) {
+    //     return <View><Text>An error has occurred : {error.message}</Text></View>;
+    // }
 
 
     const getPlayers = ({ item }) => {
@@ -81,7 +81,7 @@ const PlayersData = () => {
     }
     return (
         <View>
-            <FlatList data={data.data} renderItem={getPlayers} />
+            {/* <FlatList data={data.data} renderItem={getPlayers} /> */}
         </View>
     );
 };
