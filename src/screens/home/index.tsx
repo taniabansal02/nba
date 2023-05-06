@@ -9,7 +9,7 @@ import {useQuery} from 'react-query';
 import axios from 'axios';
 import Swiper from 'react-native-swiper';
 import TopPlayerData from './components/TopPlayers';
-import Navbar from '../../components/navbar';
+import Navbar from '../../components/Navbar';
 
 const Home = () => {
   

@@ -1,9 +1,10 @@
 export const Strings = {
-   header : {
+   common : {
       home : 'HOME',
       games : 'GAMES',
       teams : 'TEAMS',
       players : 'PLAYERS',
-      videos : 'VIDEOS'
+      videos : 'VIDEOS',
+      add : 'ADD'
    }
 }
