@@ -14,9 +14,14 @@ import {useQuery} from 'react-query';
 import axios from 'axios';
 import fonts from '../../../../assets/fonts';
 import { Strings } from '../../../../strings';
+import { useNavigation } from "@react-navigation/native";
+import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
 
 const PlayersData = () => {
+  const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
+
+  
 
   {/* ******************* Random colors ********************* */}
   const generateColor = () => {
@@ -38,7 +43,7 @@ const PlayersData = () => {
         'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
       },
     });
-    console.log(res.data.data);
+   console.log(res.data.data);
     return res.data.data;
   });
   if (isLoading) {
@@ -51,7 +56,7 @@ const PlayersData = () => {
   if (error) {
     return (
       <View>
-        <Text style={styles.text}>An error has occurred : {error.message}</Text>
+        <Text style={styles.text}>{Strings.common.err} {error.message}</Text>
       </View>
     );
   }
@@ -59,13 +64,14 @@ const PlayersData = () => {
   {/* ******************* Render Players Data ********************* */}
   const getPlayers = ({item}) => {
     return (
-      <View
+      // <TouchableOpacity onPress={() => onHandle(item.id)}>
+        <View
         style={styles.playerView}>
 
         {/* ******************* Icons ********************* */}
         <View
           style={[styles.playerIcons, {backgroundColor: generateColor()}]}>
-          <Text style={styles.text}> {item.first_name[0] + item.last_name[0]} </Text>
+          <Text style={styles.text}> {item.first_name[0] ? item.first_name[0] : null + item.last_name[0] ? item.last_name[0] : null} </Text>
         </View>
 
         {/* ******************* Player Details ********************* */}
@@ -73,22 +79,22 @@ const PlayersData = () => {
           <View style={styles.playerRow}>
             <Text
               style={styles.playerName}>
-              {item.first_name}{' '}
+              {item.first_name ? item.first_name : null }
             </Text>
             <Text
               style={styles.playerName}>
-              {item.last_name}
+              {item.last_name ? item.last_name : null}
             </Text>
           </View>
 
           <View style={styles.playerRow}>
             <Text
               style={styles.playerid}>
-              #{item.id} |{' '}
+              #{item.id ? item.id : null} |{' '}
             </Text>
             <Text
               style={styles.playerid}>
-              {item.position}
+              {item.position ? item.position : null}
             </Text>
           </View>
         </View>
@@ -105,16 +111,25 @@ const PlayersData = () => {
           </TouchableOpacity>
         </View>
       </View>
+
+      // {/* </TouchableOpacity> */}
+      
     );
   };
 
   {/* ******************* Logic for searching ********************* */ }
-  const filteredData = data.filter(i => {
+  const filteredData = data.filter((i) => {
     return (
       i.first_name.toLowerCase().match(searchText.toLowerCase()) ||
       i.last_name.toLowerCase().match(searchText.toLowerCase())
     );
   });
+
+  // const filteredData = data.filter((i) => {
+  //   return (
+  //     i.full_name.toLowerCase().match(searchText.toLowerCase()) 
+  //   );
+  // });
 
 
   return (

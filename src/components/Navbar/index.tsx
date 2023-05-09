@@ -34,11 +34,11 @@ const Navbar = () => {
 
         <View style={styles.mainView}>
             <View style={styles.navbarView}>
-                <Text style={styles.headerText}>{Strings.header.home}</Text>
-                <Text style={styles.headerText}>{Strings.header.games}</Text>
-                <Text style={styles.headerText}>{Strings.header.teams}</Text>
-                <Text style={styles.headerText}>{Strings.header.players}</Text>
-                <Text style={styles.headerText}>{Strings.header.videos}</Text>
+                <Text style={styles.headerText}>{Strings.common.home}</Text>
+                <Text style={styles.headerText}>{Strings.common.games}</Text>
+                <Text style={styles.headerText}>{Strings.common.teams}</Text>
+                <Text style={styles.headerText}>{Strings.common.players}</Text>
+                <Text style={styles.headerText}>{Strings.common.videos}</Text>
             </View>
         </View>
 

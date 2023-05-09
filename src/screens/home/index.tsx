@@ -51,9 +51,9 @@ const Home = () => {
      
 
      {/* ******************* Upcomming Matches ********************* */}
-      <Swiper showsButtons autoplay style={{height:400, marginTop:10}}>
+      <Swiper showsButtons autoplay style={{height:400, marginTop:10, backgroundColor:'green'}}>
          <View style={{flex:1}}>
-            <Image style={{height:300, width:"100%"}} source={matches[0].img} />
+            <Image style={{height:300, width:"100%", backgroundColor:'white'}} source={matches[0].img} />
             <View style={{backgroundColor:'red', height:200, width:'100%'}}>
                 <Text style={{color:'white'}}>hii</Text>
             </View>
@@ -69,10 +69,10 @@ const Home = () => {
          </View>
 
       </Swiper>
-           {/* <View style={{backgroundColor:'red', height:200, width:'100%'}}>
+           <View style={{backgroundColor:'red', height:200, width:'100%'}}>
                 <Text style={{color:'white'}}>hii</Text>
             </View>
-      <Text style={{color:'white'}}>hello</Text> */}
+      <Text style={{color:'white'}}>hello</Text>
       {/* <View style={{backgroundColor:'red', height:200, width:'100%'}}>
                 <Text style={{color:'white'}}>hii</Text>
             </View> */}

@@ -5,6 +5,9 @@ export const Strings = {
       teams : 'TEAMS',
       players : 'PLAYERS',
       videos : 'VIDEOS',
-      add : 'ADD'
+      add : 'ADD',
+      err : 'An error has occurred :',
+      follow : 'Follow',
+      
    }
 }

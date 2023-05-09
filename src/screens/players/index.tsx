@@ -4,20 +4,30 @@ import {
   Text,
   Image,
   SafeAreaView,
+  TouchableOpacity
 } from 'react-native';
 import {styles} from './style';
 import pngIcon, {Icons} from '../../assets/icons';
 import PlayersData from './components/playersData';
 import { Strings } from '../../strings';
+import { useNavigation } from "@react-navigation/native";
+import { ScreenNameKeys } from '../../utils/constants/screenKey';
 
 
 const Players = () => {
+  const onHandle = () => {
+    navigation.navigate(ScreenNameKeys.Home);
+  }
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.mainView}>
       {/* ******************* Header ********************* */}
       <View
         style={styles.headerView}>
-        <Image source={pngIcon.backArrow} style={{marginLeft: 10}} />
+          <TouchableOpacity onPress={() => onHandle()}>
+          <Image source={pngIcon.backArrow} style={{marginLeft: 10}} />
+          </TouchableOpacity>
+        
         <Text
           style={styles.headerText}>
           {Strings.common.players}

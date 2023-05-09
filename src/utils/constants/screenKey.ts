@@ -5,4 +5,5 @@ export enum ScreenNameKeys {
     Players = 'Players',
     Teams = 'Teams',
     Games = 'Games',
+    ProfilePage = 'ProfilePage',
 }
