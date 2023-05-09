@@ -9,6 +9,11 @@ const images = {
     vince : require('./Vince.jpg'),
     knick : require('./knickVsHeat.png'),
     lak : require('./lakVsWar.jpg'),
+    warrior : require('./warriorIcon.png'),
+    laker : require('./lakerLogo.png'),
+    arrow : require('./arrow.png'),
+    knicksLogo : require('./knicksLogo.png'),
+    heatLogo : require('./heatLogo.png'),
 };
 
 export default images;

@@ -71,7 +71,7 @@ const PlayersData = () => {
         {/* ******************* Icons ********************* */}
         <View
           style={[styles.playerIcons, {backgroundColor: generateColor()}]}>
-          <Text style={styles.text}> {item.first_name[0] ? item.first_name[0] : null + item.last_name[0] ? item.last_name[0] : null} </Text>
+          <Text style={styles.text}> {item?.first_name[0] ? item.first_name[0] : null + item?.last_name[0] ? item.last_name[0] : null} </Text>
         </View>
 
         {/* ******************* Player Details ********************* */}
@@ -79,22 +79,22 @@ const PlayersData = () => {
           <View style={styles.playerRow}>
             <Text
               style={styles.playerName}>
-              {item.first_name ? item.first_name : null }
+              {item?.first_name ? item.first_name : null }
             </Text>
             <Text
               style={styles.playerName}>
-              {item.last_name ? item.last_name : null}
+              {item?.last_name ? item.last_name : null}
             </Text>
           </View>
 
           <View style={styles.playerRow}>
             <Text
               style={styles.playerid}>
-              #{item.id ? item.id : null} |{' '}
+              #{item?.id ? item.id : null} |{' '}
             </Text>
             <Text
               style={styles.playerid}>
-              {item.position ? item.position : null}
+              {item?.position ? item.position : null}
             </Text>
           </View>
         </View>
@@ -120,8 +120,8 @@ const PlayersData = () => {
   {/* ******************* Logic for searching ********************* */ }
   const filteredData = data.filter((i) => {
     return (
-      i.first_name.toLowerCase().match(searchText.toLowerCase()) ||
-      i.last_name.toLowerCase().match(searchText.toLowerCase())
+      i?.first_name?.toLowerCase().match(searchText.toLowerCase()) ||
+      i?.last_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
 

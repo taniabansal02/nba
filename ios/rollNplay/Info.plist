@@ -54,6 +54,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Bold.ttf</string>
+		<string>Lato-Regular.ttf</string>
+		<string>Teko-Medium.ttf</string>
 	</array>
 </dict>
 </plist>

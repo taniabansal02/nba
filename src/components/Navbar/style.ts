@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         alignItems:'center',
         marginHorizontal:12,
         height: 50,
+        
     },
     
     headerText :{

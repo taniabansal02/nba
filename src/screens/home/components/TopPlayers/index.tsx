@@ -50,7 +50,7 @@ const TopPlayerData = () => {
           }}
           source={item.image}
         />
-        <Text style={{marginTop: 5, justifyContent: 'center', color: 'white'}}>
+        <Text style={{marginTop: 5, justifyContent: 'center', color: 'white', marginBottom:20}}>
           {item.name}
         </Text>
       </View>

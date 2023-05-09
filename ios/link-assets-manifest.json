@@ -3,11 +3,19 @@
   "data": [
     {
       "path": "src/assets/fonts/index.tsx",
-      "sha1": "19a32a50a3a53c9dc6712b3471555d3bf85a7e99"
+      "sha1": "36eeeb36633f29ee55a2a9385d4e321c1c69ccce"
     },
     {
       "path": "src/assets/fonts/Lato-Bold.ttf",
       "sha1": "e87d99a300317fd927c0a512be856b3caf52d61f"
+    },
+    {
+      "path": "src/assets/fonts/Lato-Regular.ttf",
+      "sha1": "06775847c3ad5bdc4525009f41aaf585bfcba4c2"
+    },
+    {
+      "path": "src/assets/fonts/Teko-Medium.ttf",
+      "sha1": "b5eb3f5a3c91f36276285e9d20b9f1c23ba5ae75"
     }
   ]
 }

@@ -30,7 +30,7 @@ const GamesData = () => {
   {
     /* ******************* Games API ********************* */
   }
-  const {isLoading, error, data} = useQuery('Teams', async () => {
+  const {isLoading, error, data} = useQuery('Games', async () => {
     const res = await axios.get('https://free-nba.p.rapidapi.com/games', {
       headers: {
         'X-RapidAPI-Key': 'b92d35722emshdb1f96ecbf0e730p1497f4jsn124949e0a308',
@@ -65,31 +65,31 @@ const GamesData = () => {
      
         <View style={{backgroundColor:'#191c23', height: 140, marginBottom:5}}>
 
-        <Text style={{color:'white', marginLeft:'37%', marginTop:20}}>{item.home_team.conference?item.home_team.conference : null} - Config. {item.status}</Text>
+        <Text style={{color:'white', marginLeft:'37%', marginTop:20}}>{item?.home_team?.conference?item.home_team.conference : null} - Config. {item.status}</Text>
 
             <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:30, marginTop: 15 }}>
                 <View style={{backgroundColor:generateColor(), height:55, width:55, borderRadius:50, alignItems:'center', justifyContent:'center', }}>
-                    <Text style={{color:'#ffffff'}}>{item.home_team.city[0]? item.home_team.city[0] : null + item.home_team.name[0] ? item.home_team.name[0] : null}</Text>
+                    <Text style={{color:'#ffffff'}}>{item?.home_team?.city[0]? item.home_team.city[0] : null + item?.home_team?.name[0] ? item.home_team.name[0] : null}</Text>
                 </View>
 
                 <View style={{ marginTop:25, marginLeft:-20}}>
-                <Text style={{color:'white', fontFamily:fonts.lato, fontSize:30, fontWeight:'500', }}>{item.home_team_score ? item.home_team_score : null}</Text>   
+                <Text style={{color:'white', fontFamily:fonts.lato, fontSize:30, fontWeight:'500', }}>{item?.home_team_score ? item.home_team_score : null}</Text>   
                 </View>
 
 
                 <View style={{flexDirection:'column', marginTop:20}}>
-                <Text style={styles.text}> {item.season ? item.season : null}</Text>
-                <Text style={styles.text}> {item.status ? item.status : null}</Text>
+                <Text style={styles.text}> {item?.season ? item.season : null}</Text>
+                <Text style={styles.text}> {item?.status ? item.status : null}</Text>
                 </View>
                 
 
 
                 <View style={{ marginTop:25, marginRight:-20}}>
-                <Text style={{color:'white', fontFamily:fonts.lato, fontSize:30, fontWeight:'500'}}>{item.visitor_team_score ? item.visitor_team_score : null}</Text>
+                <Text style={{color:'white', fontFamily:fonts.lato, fontSize:30, fontWeight:'500'}}>{item?.visitor_team_score ? item.visitor_team_score : null}</Text>
                 </View>
 
                 <View style={{backgroundColor:generateColor(), height:55, width:55, borderRadius:50, alignItems:'center', justifyContent:'center', }}>
-                    <Text style={{color:'#ffffff'}}>{item.visitor_team.city[0]? item.visitor_team.city[0] : null + item.visitor_team.name[0] ? item.visitor_team.name[0] : null}</Text>
+                    <Text style={{color:'#ffffff'}}>{item?.visitor_team?.city[0]? item.visitor_team.city[0] : null + item?.visitor_team?.name[0] ? item.visitor_team.name[0] : null}</Text>
                 </View>
 
                 
