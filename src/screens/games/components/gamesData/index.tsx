@@ -40,13 +40,12 @@ const GamesData = () => {
     console.log(res.data.data);
     return res.data.data;
   });
-  if (isLoading) {
-    return (
-      <View style={styles.indicator}>
-        <ActivityIndicator size="large" />
+  if (isLoading){
+    return(
+      <View> 
+        <Text>gg</Text>
       </View>
-    );
-  }
+    )}
   if (error) {
     return (
       <View>
@@ -69,7 +68,7 @@ const GamesData = () => {
 
             <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:30, marginTop: 15 }}>
                 <View style={{backgroundColor:generateColor(), height:55, width:55, borderRadius:50, alignItems:'center', justifyContent:'center', }}>
-                    <Text style={{color:'#ffffff'}}>{item?.home_team?.city[0]? item.home_team.city[0] : null + item?.home_team?.name[0] ? item.home_team.name[0] : null}</Text>
+                    <Text style={{color:'#ffffff'}}>{item?.home_team?.city[0]? item.home_team.city[0] : null }{ item?.home_team?.name[0] ? item.home_team.name[0] : null}</Text>
                 </View>
 
                 <View style={{ marginTop:25, marginLeft:-20}}>
@@ -89,7 +88,7 @@ const GamesData = () => {
                 </View>
 
                 <View style={{backgroundColor:generateColor(), height:55, width:55, borderRadius:50, alignItems:'center', justifyContent:'center', }}>
-                    <Text style={{color:'#ffffff'}}>{item?.visitor_team?.city[0]? item.visitor_team.city[0] : null + item?.visitor_team?.name[0] ? item.visitor_team.name[0] : null}</Text>
+                    <Text style={{color:'#ffffff'}}>{item?.visitor_team?.city[0]? item.visitor_team.city[0] : null }{item?.visitor_team?.name[0] ? item.visitor_team.name[0] : null}</Text>
                 </View>
 
                 

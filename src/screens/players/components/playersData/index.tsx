@@ -31,8 +31,12 @@ const PlayersData = () => {
     return `#${randomColor}`;
 };
 
+const onHandle= (item) => {
+  navigation.navigate(ScreenNameKeys.ProfilePage, item);
+}
+
   {/* ******************* Players API ********************* */}
-  const {isLoading, error, data} = useQuery('Players', async () => {
+  const {isLoading, error, data } = useQuery('Players', async () => {
     const res = await axios.get('https://free-nba.p.rapidapi.com/players', {
       params: {
         page: '0',
@@ -46,13 +50,13 @@ const PlayersData = () => {
    console.log(res.data.data);
     return res.data.data;
   });
-  if (isLoading) {
-    return (
-      <View style={styles.indicator}>
-        <ActivityIndicator size="large" color="#5500dc" />
-      </View>
-    );
-  }
+ if (isLoading){
+  return(
+    <View> 
+      <Text>gg</Text>
+    </View>
+  )
+ }
   if (error) {
     return (
       <View>
@@ -64,14 +68,14 @@ const PlayersData = () => {
   {/* ******************* Render Players Data ********************* */}
   const getPlayers = ({item}) => {
     return (
-      // <TouchableOpacity onPress={() => onHandle(item.id)}>
+      <TouchableOpacity onPress={() => onHandle(item)}>
         <View
         style={styles.playerView}>
 
         {/* ******************* Icons ********************* */}
         <View
           style={[styles.playerIcons, {backgroundColor: generateColor()}]}>
-          <Text style={styles.text}> {item?.first_name[0] ? item.first_name[0] : null + item?.last_name[0] ? item.last_name[0] : null} </Text>
+          <Text style={styles.text}> {item?.first_name[0] ? item.first_name[0] : null }{ item?.last_name[0] ? item.last_name[0] : null} </Text>
         </View>
 
         {/* ******************* Player Details ********************* */}
@@ -112,7 +116,7 @@ const PlayersData = () => {
         </View>
       </View>
 
-      // {/* </TouchableOpacity> */}
+       </TouchableOpacity>
       
     );
   };
@@ -125,11 +129,6 @@ const PlayersData = () => {
     );
   });
 
-  // const filteredData = data.filter((i) => {
-  //   return (
-  //     i.full_name.toLowerCase().match(searchText.toLowerCase()) 
-  //   );
-  // });
 
 
   return (

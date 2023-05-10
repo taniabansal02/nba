@@ -16,10 +16,11 @@ import { ScreenNameKeys } from '../../utils/constants/screenKey';
 
 
 const Teams = () => {
+  
+  const navigation = useNavigation();
   const onHandle = () => {
     navigation.navigate(ScreenNameKeys.Home);
   }
-  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.mainView}>
       {/* ******************* Header ********************* */}

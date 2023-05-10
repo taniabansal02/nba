@@ -5,11 +5,14 @@ import axios from 'axios';
 import { styles } from "./style";
 import { Strings } from "../../strings";
 
-const ProfilePage = (props) => {
-    const item = props.route.params;
-    console.log(props.route.params);
+const ProfilePage = (prop) => {
+    
+    const item = prop.params;
+    // console.log(first_name);
+    // console.log(last_name);
+    // console.log(id);
 
-
+    console.log(prop.route.params);
 
     // const {isLoading, error, data} = useQuery('Players', async () => {
     //     const res = await axios.get('https://free-nba.p.rapidapi.com/players/14', {
@@ -37,7 +40,7 @@ const ProfilePage = (props) => {
     //   }
     return(
         <View style={styles.mainView}>
-            <Text style={styles.text}> {item}</Text>
+            <Text style={styles.text}> profile Page </Text>
         </View>
     );
 };

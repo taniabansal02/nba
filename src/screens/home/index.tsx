@@ -11,6 +11,7 @@ import Swiper from 'react-native-swiper';
 import TopPlayerData from './components/TopPlayers';
 import Navbar from '../../components/Navbar';
 import fonts from '../../assets/fonts';
+import SwiperDetails from './components/SwiperDetails';
 
 const Home = () => {
 
@@ -35,10 +36,10 @@ const Home = () => {
     <ScrollView style={styles.body}>
 
       {/* ******************* Banner ********************* */}
-      <Image source={images.banner} style={styles.banner} />
+      {/* <Image source={images.banner} style={styles.banner} /> */}
 
       {/* ******************* Navbar ********************* */}
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* ******************* Horizontal Line ********************* */}
       <View style={styles.horizontalLine}></View>
@@ -49,86 +50,44 @@ const Home = () => {
 
 
       {/* ******************* Upcomming Matches ********************* */}
-      <Swiper autoplay paginationStyle={{position:'absolute',  bottom: 230}} dot={<View style={{backgroundColor:'#4b4b4b', width: 7, height: 7, borderRadius: 4, marginLeft:4}}></View>} activeDot={<View style={{backgroundColor:'#ffff', width: 7, height: 7, borderRadius: 4, marginLeft:4}}></View>}>
+      <Swiper autoplay paginationStyle={{ position: 'absolute', bottom: 300 }} dot={<View style={{ backgroundColor: '#4b4b4b', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>} activeDot={<View style={{ backgroundColor: '#ffff', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>}>
 
-        {/* ****** Swiper mainview ****** */}
-        <View style={styles.swiperView}>
-          <Image style={styles.swiperImg1} source={matches[0].img} />
+        {/* ****** Swiper Slider 1 ****** */}
 
-          <View style={{ flex: 1, alignItems: 'center', marginTop: 15 }}>
-            <Text style={{ color: '#ffff', fontFamily: fonts.latoRegular, fontSize: 15 }}> East - Conf. Semifinals</Text>
-            <Text style={{ color: '#6f7279', fontFamily: fonts.latoRegular, fontSize: 15, marginTop: 3 }}> Game 4</Text>
+        <SwiperDetails
 
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-
-            <View>
-              <Image source={images.knicksLogo} style={{ height: 52, width: 52, }} />
-              <Text style={{ color: 'white', marginTop: 4 }}>Knicks</Text>
-            </View>
-
-
-            <Text style={{ color: '#8f9299', marginTop: 30, fontFamily: fonts.tekoMedium, fontSize: 44 }}>101</Text>
-
-            <View style={{ backgroundColor: '#ffff', height: 30, width: 50, marginTop: 40, alignItems: 'center', justifyContent: 'center' }}>
-              <Text style={{ color: 'black', fontFamily: fonts.lato, fontSize: 16 }}> Final</Text>
-            </View>
-            <Text style={{ color: 'white', marginTop: 30, fontFamily: fonts.tekoMedium, fontSize: 44 }}>109</Text>
+          slider1img={matches[0].img}
+          heading='West - Conf. Semifinals'
+          subheading='Game 4'
+          team1logo={images.warrior}
+          team1name='Warriors'
+          score1='101'
+          status='Final'
+          score2='104'
+          team2logo={images.laker}
+          team2name='Lakers'
+          txt='LAL leads 3-1'
+        />
 
 
 
 
-            <View>
-              <Image source={images.heatLogo} style={{ height: 50, width: 50, }} />
-              <Text style={{ color: 'white', marginTop: 4 }}>Heat</Text>
-            </View>
+        {/* ****** Swiper Slider 2 ****** */}
 
-          </View>
+        <SwiperDetails
+          slider1img={matches[1].img}
+          heading='East - Conf. Semifinals'
+          subheading='Game 4'
+          team1logo={images.knicksLogo}
+          team1name='Knicks'
+          score1='101'
+          status='Final'
+          score2='109'
+          team2logo={images.heatLogo}
+          team2name='Heat'
+          txt='MIA leads 3-1'
+        />
 
-          <View style={{ flex: 1, alignItems: 'center' }}>
-            <Text style={{ color: '#6f7279', fontFamily: fonts.latoRegular, fontSize: 15, }}> MIA leads 3-1</Text>
-          </View>
-        </View>
-
-{/* ****** Swiper mainview ****** */}
-        <View style={styles.swiperView}>
-          <Image style={styles.swiperImg2} source={matches[1].img} />
-          <View style={{ flex: 1, alignItems: 'center', marginTop: 15 }}>
-            <Text style={{ color: '#ffff', fontFamily: fonts.latoRegular, fontSize: 15 }}> West - Conf. Semifinals</Text>
-            <Text style={{ color: '#6f7279', fontFamily: fonts.latoRegular, fontSize: 15, marginTop: 3 }}> Game 4</Text>
-
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-
-            <View>
-              <Image source={images.warrior} style={{ height: 52, width: 52, }} />
-              <Text style={{ color: 'white', marginTop: 4 }}>Warriors</Text>
-            </View>
-
-
-            <Text style={{ color: '#8f9299', marginTop: 30, fontFamily: fonts.tekoMedium, fontSize: 44 }}>101</Text>
-
-            <View style={{ backgroundColor: '#ffff', height: 30, width: 50, marginTop: 40, alignItems: 'center', justifyContent: 'center' }}>
-              <Text style={{ color: 'black', fontFamily: fonts.lato, fontSize: 16 }}> Final</Text>
-            </View>
-            <Text style={{ color: 'white', marginTop: 30, fontFamily: fonts.tekoMedium, fontSize: 44 }}>104</Text>
-
-
-
-
-            <View>
-              <Image source={images.laker} style={{ height: 50, width: 70, }} />
-              <Text style={{ color: 'white', marginTop: 4 }}>Lakers</Text>
-            </View>
-
-          </View>
-
-          <View style={{ flex: 1, alignItems: 'center' }}>
-            <Text style={{ color: '#6f7279', fontFamily: fonts.latoRegular, fontSize: 15, }}> LAL leads 3-1</Text>
-          </View>
-        </View>
-
-        {/* <Image style={{resizeMode:'cover', width:'100%'}} source={matches[0].img} /> */}
 
       </Swiper>
       {/* <Swiper showsButtons autoplay style={{height:400, marginTop:10,  marginHorizontal:20}}>

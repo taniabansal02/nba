@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, lazy} from "react";
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -19,11 +19,11 @@ const Navigation = () => {
 
     const BottomNavigation = () => {
       return(
-        <BottomTabs.Navigator initialRouteName="Home" >
-          <BottomTabs.Screen component={Home} name={ScreenNameKeys.Home} options={{headerShown: false}}/>
-          <BottomTabs.Screen component={Players} name={ScreenNameKeys.Players} options={{headerShown: false}}/>
+        <BottomTabs.Navigator initialRouteName="Home" screenOptions={{lazy: false}} >
+          <BottomTabs.Screen component={Home} name={ScreenNameKeys.Home} options={{headerShown: false }}/>
+          <BottomTabs.Screen component={Players} name={ScreenNameKeys.Players} options={{headerShown: false }}/>
           <BottomTabs.Screen component={Teams} name={ScreenNameKeys.Teams} options={{headerShown: false}}/>
-          <BottomTabs.Screen component={Games} name={ScreenNameKeys.Games} options={{headerShown: false}}/>
+          <BottomTabs.Screen component={Games} name={ScreenNameKeys.Games} options={{headerShown: false}} />
         </BottomTabs.Navigator>
       );
     };

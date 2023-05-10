@@ -38,13 +38,12 @@ const TeamsData = () => {
     console.log(res.data.data);
     return res.data.data;
   });
-  if (isLoading) {
-    return (
-      <View style={styles.indicator}>
-        <ActivityIndicator size="large" color="#5500dc" />
+  if (isLoading){
+    return(
+      <View> 
+        <Text>gg</Text>
       </View>
-    );
-  }
+    )}
   if (error) {
     return (
       <View>
@@ -62,7 +61,7 @@ const TeamsData = () => {
         {/* ******************* Icons ********************* */}
         <View
           style={[styles.playerIcons, {backgroundColor: generateColor()}]}>
-          <Text style={styles.text}> {item?.city[0] ? item.city[0] : null + item?.name[0] ? item.name[0] : null} </Text>
+          <Text style={styles.text}> {item?.city[0] ? item.city[0] : null }{ item?.name[0] ? item.name[0] : null} </Text>
         </View>
 
         {/* ******************* Player Details ********************* */}
