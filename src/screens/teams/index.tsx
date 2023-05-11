@@ -41,9 +41,10 @@ const Teams = () => {
         style={styles.horizontalLine}></View>
 
       {/* ******************* Render Player Data ********************* */}
-      <View>
+      <View style={{marginBottom:194}}>
         <TeamsData />
       </View>
+     
     </SafeAreaView>
   );
 };

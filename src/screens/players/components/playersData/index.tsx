@@ -53,7 +53,7 @@ const onHandle= (item) => {
  if (isLoading){
   return(
     <View> 
-      <Text>gg</Text>
+      <Text style={styles.text}> Loading </Text>
     </View>
   )
  }
@@ -128,6 +128,7 @@ const onHandle= (item) => {
       i?.last_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
+
 
 
 

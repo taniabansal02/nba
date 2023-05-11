@@ -134,6 +134,8 @@ const TeamsData = () => {
         renderItem={getTeams}
         style={styles.list}
       />
+
+  
     </View>
   );
 };

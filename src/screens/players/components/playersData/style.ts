@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
       playerView: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 5,
+        marginBottom: 1,
         backgroundColor: '#191c23',
         height: 70,
       },

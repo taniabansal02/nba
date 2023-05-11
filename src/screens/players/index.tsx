@@ -39,7 +39,7 @@ const Players = () => {
         style={styles.horizontalLine}></View>
 
       {/* ******************* Render Player Data ********************* */}
-      <View>
+      <View style={{marginBottom:194}}>
         <PlayersData />
       </View>
     </SafeAreaView>

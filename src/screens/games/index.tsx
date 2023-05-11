@@ -21,7 +21,7 @@ const Games = () => {
         <Text style={styles.headerText}>{Strings.common.games}</Text>
       </View>
       {/* ******************* Games card ********************* */}
-      <View>
+      <View style={{marginBottom:194}}>
         <GamesData />
       </View>
     </SafeAreaView>
