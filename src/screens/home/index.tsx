@@ -69,9 +69,6 @@ const Home = () => {
           txt='LAL leads 3-1'
         />
 
-
-
-
         {/* ****** Swiper Slider 2 ****** */}
 
         <SwiperDetails
@@ -90,30 +87,6 @@ const Home = () => {
 
 
       </Swiper>
-      {/* <Swiper showsButtons autoplay style={{height:400, marginTop:10,  marginHorizontal:20}}>
-         <View style={{flex:1, marginHorizontal:10}}>
-            <Image style={{height:300, width:"100%", backgroundColor:'white'}} source={matches[0].img} />
-            <View style={{backgroundColor:'#191c23', height:200, width:'100%'}}>
-                <Text style={{color:'white'}}>hii</Text>
-            </View>
-         
-         </View>
-
-         <View style={{flex:1}}>
-            <Image style={{height:300, width:"100%"}} source={matches[1].img} />
-            <View style={{backgroundColor:'#191c23', height:200, width:'100%'}}>
-                <Text style={{color:'white'}}>hii</Text>
-            </View>
-            
-         </View>
-
-      </Swiper> */}
-
-
-
-
-
-
     </ScrollView>
   );
 };
