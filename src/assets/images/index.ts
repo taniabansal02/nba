@@ -15,6 +15,8 @@ const images = {
     knicksLogo : require('./knicksLogo.png'),
     heatLogo : require('./heatLogo.png'),
     common : require('./common.png'),
+    logoCommon : require('./logoCommon.jpg'),
+    match : require('./match.jpg'),
 };
 
 export default images;

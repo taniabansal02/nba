@@ -1,9 +1,7 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import { styles } from './style';
-import images from '../../../../assets/images';
 import fonts from '../../../../assets/fonts';
-
 interface Props {
     slider1img ?: any,
     slider2img ?: any,

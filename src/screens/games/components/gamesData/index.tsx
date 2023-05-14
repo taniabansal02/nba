@@ -15,17 +15,25 @@ import {useQuery} from 'react-query';
 import axios from 'axios';
 import {Strings} from '../../../../strings';
 import fonts from '../../../../assets/fonts';
+import { useNavigation } from "@react-navigation/native";
+import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
+
+
 
 const GamesData = () => {
-  {
-    /* ******************* Random colors ********************* */
-  }
+  const navigation = useNavigation();
+
+  { /* ******************* Random colors ********************* */ }
   const generateColor = () => {
     const randomColor = Math.floor(Math.random() * 16777215)
       .toString(16)
       .padStart(6, '0');
     return `#${randomColor}`;
   };
+
+  const onHandle= (item) => {
+    navigation.navigate(ScreenNameKeys.GamesProfilePage, item);
+  }
 
   {
     /* ******************* Games API ********************* */
@@ -61,7 +69,7 @@ const GamesData = () => {
   }
   const getGames = ({item}) => {
     return (
-     
+      <TouchableOpacity onPress={() => onHandle(item)}>
         <View style={{backgroundColor:'#191c23', height: 140, marginBottom:5}}>
 
         <Text style={{color:'white', marginLeft:'37%', marginTop:20}}>{item?.home_team?.conference?item.home_team.conference : null} - Config. {item.status}</Text>
@@ -96,7 +104,7 @@ const GamesData = () => {
             </View>
 
         </View>
-        
+        </TouchableOpacity>
 
     );
   };

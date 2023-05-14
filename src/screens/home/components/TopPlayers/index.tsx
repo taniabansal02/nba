@@ -1,10 +1,10 @@
-import React from "react";
-import {View, Text, FlatList, Image } from 'react-native';
-import images from "../../../../assets/images";
+import React from 'react';
+import {View, Text, FlatList, Image} from 'react-native';
+import images from '../../../../assets/images';
 
 const TopPlayerData = () => {
-     /* Top Players Data  */
-  
+  /* Top Players Data  */
+
   const topPlayers = [
     {
       name: 'Stephen Curry',
@@ -39,7 +39,13 @@ const TopPlayerData = () => {
   const renderTopPlayers = ({item}) => {
     return (
       <View
-        style={{flex: 1, alignItems: 'center', marginTop: 10, marginLeft: 11, height:120}}>
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          marginTop: 10,
+          marginLeft: 11,
+          height: 120,
+        }}>
         <Image
           style={{
             height: 90,
@@ -50,25 +56,29 @@ const TopPlayerData = () => {
           }}
           source={item.image}
         />
-        <Text style={{marginTop: 5, justifyContent: 'center', color: 'white', marginBottom:20}}>
+        <Text
+          style={{
+            marginTop: 5,
+            justifyContent: 'center',
+            color: 'white',
+            marginBottom: 20,
+          }}>
           {item.name}
         </Text>
       </View>
     );
   };
 
-    return(
-        <View>
-             {/* Leagues  */}
+  return (
+    <View>
+      {/* Leagues  */}
       <FlatList
         data={topPlayers}
         renderItem={renderTopPlayers}
         horizontal={true}
       />
-        </View>
-
-    )
-
+    </View>
+  );
 };
 
 export default TopPlayerData;

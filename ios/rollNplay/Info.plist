@@ -56,6 +56,13 @@
 		<string>Lato-Bold.ttf</string>
 		<string>Lato-Regular.ttf</string>
 		<string>Teko-Medium.ttf</string>
+		<string>RobotoCondensed-Regular.ttf</string>
+		<string>MerriweatherSans-Bold.ttf</string>
+		<string>MerriweatherSans-ExtraBold.ttf</string>
+		<string>MerriweatherSans-Light.ttf</string>
+		<string>MerriweatherSans-Medium.ttf</string>
+		<string>MerriweatherSans-Regular.ttf</string>
+		<string>MerriweatherSans-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -1,26 +1,19 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  ActivityIndicator,
-  TextInput,
-} from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, ActivityIndicator, TextInput } from 'react-native';
 import { styles } from './style';
 import pngIcon from '../../../../assets/icons';
 import {useQuery} from 'react-query';
 import axios from 'axios';
-import fonts from '../../../../assets/fonts';
 import { Strings } from '../../../../strings';
 import { useNavigation } from "@react-navigation/native";
+
+
+
 import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
 
 const PlayersData = () => {
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
-
   
 
   {/* ******************* Random colors ********************* */}
@@ -128,9 +121,6 @@ const onHandle= (item) => {
       i?.last_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
-
-
-
 
   return (
     <View>

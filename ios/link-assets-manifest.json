@@ -3,7 +3,7 @@
   "data": [
     {
       "path": "src/assets/fonts/index.tsx",
-      "sha1": "36eeeb36633f29ee55a2a9385d4e321c1c69ccce"
+      "sha1": "c935de9bc5bbbb2a6d85f4ed0b78a11cfd9f514c"
     },
     {
       "path": "src/assets/fonts/Lato-Bold.ttf",
@@ -12,6 +12,34 @@
     {
       "path": "src/assets/fonts/Lato-Regular.ttf",
       "sha1": "06775847c3ad5bdc4525009f41aaf585bfcba4c2"
+    },
+    {
+      "path": "src/assets/fonts/MerriweatherSans-Bold.ttf",
+      "sha1": "fc20dd26c0ddc45876c02f73f45cbf2e59c075d9"
+    },
+    {
+      "path": "src/assets/fonts/MerriweatherSans-ExtraBold.ttf",
+      "sha1": "4c76e0d3338b14b31b75907b2da12ecfbc709eb3"
+    },
+    {
+      "path": "src/assets/fonts/MerriweatherSans-Light.ttf",
+      "sha1": "d69d580ddce708689be77f67acc200364ac08668"
+    },
+    {
+      "path": "src/assets/fonts/MerriweatherSans-Medium.ttf",
+      "sha1": "d3142424b6b16575284e38ad086742401a1914bc"
+    },
+    {
+      "path": "src/assets/fonts/MerriweatherSans-Regular.ttf",
+      "sha1": "377d03f6bc241083c2d0ed17eb193e3fe58a4de4"
+    },
+    {
+      "path": "src/assets/fonts/MerriweatherSans-SemiBold.ttf",
+      "sha1": "2342945a6c42b04f1115510e5f574b049df6916f"
+    },
+    {
+      "path": "src/assets/fonts/RobotoCondensed-Regular.ttf",
+      "sha1": "423445a65ca45475142e89514546de0c5ec19485"
     },
     {
       "path": "src/assets/fonts/Teko-Medium.ttf",

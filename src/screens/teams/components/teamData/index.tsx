@@ -14,8 +14,14 @@ import {useQuery} from 'react-query';
 import axios from 'axios';
 import fonts from '../../../../assets/fonts';
 import { Strings } from '../../../../strings';
+import { useNavigation } from "@react-navigation/native";
+import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
+
+
+
 
 const TeamsData = () => {
+  const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
 
   {/* ******************* Random colors ********************* */}
@@ -26,6 +32,10 @@ const TeamsData = () => {
     return `#${randomColor}`;
 };
 
+const onHandle= (item) => {
+  navigation.navigate(ScreenNameKeys.TeamProfilePage, item);
+}
+
   {/* ******************* Teams API ********************* */}
   const {isLoading, error, data} = useQuery('Teams', async () => {
     const res = await axios.get('https://free-nba.p.rapidapi.com/teams', {
@@ -35,13 +45,12 @@ const TeamsData = () => {
     'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
   }
     });
-    console.log(res.data.data);
     return res.data.data;
   });
   if (isLoading){
     return(
       <View> 
-        <Text>gg</Text>
+        <Text style={styles.text}>Loading ...</Text>
       </View>
     )}
   if (error) {
@@ -55,6 +64,7 @@ const TeamsData = () => {
   {/* ******************* Get Teams Data ********************* */}
   const getTeams = ({item}) => {
     return (
+      <TouchableOpacity onPress={() => onHandle(item)}>
       <View
         style={styles.playerView}>
 
@@ -64,7 +74,8 @@ const TeamsData = () => {
           <Text style={styles.text}> {item?.city[0] ? item.city[0] : null }{ item?.name[0] ? item.name[0] : null} </Text>
         </View>
 
-        {/* ******************* Player Details ********************* */}
+        {/* ******************* Team Details ********************* */}
+       
         <View style={styles.playerDetails}>
           <View style={styles.playerRow}>
             <Text
@@ -100,6 +111,7 @@ const TeamsData = () => {
           </TouchableOpacity>
         </View>
       </View>
+      </TouchableOpacity>
     );
   };
 

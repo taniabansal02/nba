@@ -9,6 +9,8 @@ import Games from "../screens/games";
 import Teams from "../screens/teams";
 import Players from "../screens/players";
 import ProfilePage from "../screens/profilePage";
+import TeamProfilePage from "../screens/teamProfilePage";
+import GamesProfilePage from "../screens/gamesProfilePage";
 
 
 const Stack = createStackNavigator();
@@ -41,6 +43,8 @@ const Navigation = () => {
           {/* <Stack.Screen name={ScreenNameKeys.Home} component={Home} options={{headerShown: false}} /> */}
           <Stack.Screen name='BottomNavigation' component={BottomNavigation} options={{headerShown: false}} />
           <Stack.Screen name={ScreenNameKeys.ProfilePage} component={ProfilePage} options={{headerShown: false}} />
+          <Stack.Screen name={ScreenNameKeys.TeamProfilePage} component={TeamProfilePage} options={{headerShown: false}} />
+          <Stack.Screen name={ScreenNameKeys.GamesProfilePage} component={GamesProfilePage} options={{headerShown: false}} />
           
             </Stack.Navigator>
 

@@ -6,4 +6,6 @@ export enum ScreenNameKeys {
     Teams = 'Teams',
     Games = 'Games',
     ProfilePage = 'ProfilePage',
+    TeamProfilePage = 'TeamProfilePage',
+    GamesProfilePage = 'GamesProfilePage',
 }

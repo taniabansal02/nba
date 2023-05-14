@@ -1,24 +1,14 @@
-import React, { useEffect } from 'react';
-import { View, Text, FlatList, ScrollView, ImageBackground } from 'react-native';
+import React from 'react';
+import { View, ScrollView} from 'react-native';
 import { styles } from './style';
-
-// import axios from 'axios';
 import images from '../../assets/images';
-import { Image } from 'react-native';
-import { useQuery } from 'react-query';
-import axios from 'axios';
 import Swiper from 'react-native-swiper';
 import TopPlayerData from './components/TopPlayers';
-import Navbar from '../../components/Navbar';
-import fonts from '../../assets/fonts';
 import SwiperDetails from './components/SwiperDetails';
 
 const Home = () => {
 
-
-  {
-    /* One to One matches  */
-  }
+  { /* One to One matches  */ }
   const matches = [
     {
       img: images.knick,
@@ -28,18 +18,8 @@ const Home = () => {
     },
   ];
 
-
-
-
-
   return (
     <ScrollView style={styles.body}>
-
-      {/* ******************* Banner ********************* */}
-      {/* <Image source={images.banner} style={styles.banner} /> */}
-
-      {/* ******************* Navbar ********************* */}
-      {/* <Navbar /> */}
 
       {/* ******************* Horizontal Line ********************* */}
       <View style={styles.horizontalLine}></View>
@@ -84,8 +64,6 @@ const Home = () => {
           team2name='Heat'
           txt='MIA leads 3-1'
         />
-
-
       </Swiper>
     </ScrollView>
   );

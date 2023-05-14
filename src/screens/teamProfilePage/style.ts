@@ -26,10 +26,10 @@ export const styles = StyleSheet.create({
     img : {
       height: 140,
        width: 140, 
-       marginTop: 30
+       marginTop: 30,
+       borderRadius:100,
       },
       textView : {
-        flexDirection: 'row',
          marginTop:4
         },
 
