@@ -1,18 +1,18 @@
 import { StyleSheet } from 'react-native';
 import fonts from '../../../../assets/fonts';
+import { colors } from '../../../../assets/theme/colors';
 
 export const styles = StyleSheet.create({
     searchBar: {
-        backgroundColor: '#191c23',
+        backgroundColor: colors.white,
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 20,
         width: '90%',
         height: 45,
         marginHorizontal: 20,
-        borderColor: '#5e6168',
-        borderWidth: 1,
-        borderRadius: 6,
+        
+        borderRadius: 1,
       },
       searchIcon: {
         marginHorizontal: 14
@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 1,
-        backgroundColor: '#191c23',
+        backgroundColor: colors.white,
         height: 70,
       },
       playerIcons:{
@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row'
       },
       playerName:{
-        color: 'white', 
+        color: colors.black, 
         fontFamily: fonts.lato, 
         fontSize: 18
       },
@@ -72,7 +72,7 @@ export const styles = StyleSheet.create({
         marginRight: 20,
       },
       btn:{
-        backgroundColor: 'white',
+        backgroundColor: colors.greyHeading,
         height: 30,
         width: 70,
         borderRadius: 5,
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
       },
       btnTxt:{
-        color: 'black', 
+        color: colors.white, 
         fontFamily: fonts.lato, 
         fontSize: 16
       }

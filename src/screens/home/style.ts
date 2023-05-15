@@ -1,27 +1,28 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../assets/theme/colors';
 
 export const styles = StyleSheet.create({
-    body: {
+    linearGradient: {
         flex: 1,
-        backgroundColor: 'black'
-    },
+       
+       
+      },
+    // body: {
+    //     flex: 1,
+    //     backgroundColor: '#ECECF9',
+    // },
     banner: {
         width: "100%",
         height: 100,
         resizeMode: 'cover',
         margin: 0
     },
-    horizontalLine: {
-        borderBottomColor: '#2f2f2f',
-        borderWidth: 1,
-        marginTop: -6,
-    },
-    swiperView: {
-        backgroundColor: '#191c23',
-        height: 550,
-        marginHorizontal: 14,
-        marginTop: 10
-    },
+    // horizontalLine: {
+    //     borderBottomColor: '#2f2f2f',
+    //     borderWidth: 1,
+    //     marginTop: -6,
+    // },
+    
     swiperImg1: {
         resizeMode: 'cover',
         width: '100%'

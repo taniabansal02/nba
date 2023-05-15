@@ -55,7 +55,7 @@ const SwiperDetails = ({heading, subheading, team1logo, team1name, score1, statu
           </View>
 
           <View style={styles.txtView}>
-            <Text style={{ color: '#6f7279', fontFamily: fonts.latoRegular, fontSize: 15, }}>{txt}</Text>
+            <Text style={styles.subHead}>{txt}</Text>
           </View>
         </View>
     );

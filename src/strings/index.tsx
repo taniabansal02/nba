@@ -3,7 +3,7 @@ export const Strings = {
       home : 'HOME',
       games : 'GAMES',
       teams : 'TEAMS',
-      players : 'PLAYERS',
+      players : 'Browse Player',
       videos : 'VIDEOS',
       add : 'ADD',
       err : 'An error has occurred :',

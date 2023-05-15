@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 import fonts from '../../assets/fonts';
+import { colors } from '../../assets/theme/colors';
 
 export const styles = StyleSheet.create({
     mainView: {
-        backgroundColor: 'black', 
+        backgroundColor: colors.bg, 
         flex: 1
     },
     headerView :{

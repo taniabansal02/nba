@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList, Image} from 'react-native';
 import images from '../../../../assets/images';
+import { colors } from '../../../../assets/theme/colors';
 
 const TopPlayerData = () => {
   /* Top Players Data  */
@@ -60,7 +61,7 @@ const TopPlayerData = () => {
           style={{
             marginTop: 5,
             justifyContent: 'center',
-            color: 'white',
+            color: colors.black,
             marginBottom: 20,
           }}>
           {item.name}

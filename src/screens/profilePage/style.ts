@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import fonts from "../../assets/fonts";
 
+
 export const styles = StyleSheet.create({
     
     mainView : {

@@ -1,27 +1,16 @@
 import { StyleSheet } from 'react-native';
 import fonts from '../../../../assets/fonts';
+import { colors } from '../../../../assets/theme/colors';
 
 export const styles = StyleSheet.create({
-    body: {
-        flex: 1,
-        backgroundColor: 'black'
-    },
-    banner: {
-        width: "100%",
-        height: 100,
-        resizeMode: 'cover',
-        margin: 0
-    },
-    horizontalLine: {
-        borderBottomColor: '#2f2f2f',
-        borderWidth: 1,
-        marginTop: -6,
-    },
+    
     swiperView: {
-        backgroundColor: '#191c23',
+        backgroundColor: colors.bg,
+        // '#cfe0da',
         height: 470,
         marginHorizontal: 14,
-        marginTop: 10
+        marginTop: 10,
+        borderRadius:5,
     },
     swiperImg: {
         resizeMode: 'cover',
@@ -34,15 +23,14 @@ export const styles = StyleSheet.create({
         marginTop: 15 
     },
     heading : { 
-        color: '#ffffff', 
-        fontFamily: fonts.latoRegular, 
+        color: colors.greyHeadingText, 
+        fontFamily: fonts.MerriRegular, 
         fontSize: 15 
     },
     subHead: { 
-        color: '#6f7279', 
-        fontFamily: fonts.latoRegular, 
+        color: colors.greyText, 
+        fontFamily: fonts.MerriRegular, 
         fontSize: 15, 
-        marginTop: 3 
     },
     container : { 
         flexDirection: 'row', 
@@ -53,17 +41,17 @@ export const styles = StyleSheet.create({
         width: 52
     },
     teamNameTxt : { 
-        color: 'white', 
+        color: colors.black, 
         marginTop: 4 
     },
     scoreTxt : { 
-        color: '#8f9299', 
+        color: colors.scoreTxt, 
         marginTop: 30, 
         fontFamily: fonts.tekoMedium, 
         fontSize: 44 
     },
     statusView : { 
-        backgroundColor: '#ffff', 
+        backgroundColor: colors.bg, 
         height: 30, 
         width: 50, 
         marginTop: 40, 
@@ -76,7 +64,7 @@ export const styles = StyleSheet.create({
         fontSize: 16 
     },
     score2Txt : { 
-        color: 'white', 
+        color: colors.black, 
         marginTop: 30, 
         fontFamily: fonts.tekoMedium, 
         fontSize: 44 

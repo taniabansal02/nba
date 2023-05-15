@@ -11,7 +11,7 @@ cardRow: {
     flexDirection:'row', 
     justifyContent:'space-between', 
     alignItems:'center', 
-    marginHorizontal:30
+    marginHorizontal: 15
 },
 titleTxt : {
     color:'#7d7d7d', 
