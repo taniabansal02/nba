@@ -16,6 +16,7 @@ import GamesProfilePage from "../screens/gamesProfilePage";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { styles } from "../screens/home/style";
 import { colors } from "../assets/theme/colors";
+import MyTeams from "../screens/myTeams";
 
 
 const Stack = createStackNavigator();
@@ -52,8 +53,8 @@ const Navigation = () => {
                 
               
             ),
-            tabBarStyle:{backgroundColor: colors.white ,position:'absolute', height:70, bottom:25, right:20, left: 20, borderRadius:15 , shadowColor: '#7F5DF0', shadowOffset:{width:0, height: 10} , shadowOpacity: 0.25, shadowRadius: 3.5, elevation: 5},
-            tabBarLabelStyle:{paddingTop:100, backgroundColor:'red'},
+            tabBarStyle:{backgroundColor: colors.white ,position:'absolute', height:70,bottom:15,  right:20, left: 20, borderRadius:15 , shadowColor: '#7F5DF0', shadowOffset:{width:0, height: 10} , shadowOpacity: 0.25, shadowRadius: 3.5, elevation: 5},
+            
               
               // style = {{tintColor : tabInfo.focused ? '#FD8C73': '#878787'}}
             
@@ -63,6 +64,7 @@ const Navigation = () => {
           <BottomTabs.Screen component={Players} name={ScreenNameKeys.Players} options={{headerShown: false }}/>
           <BottomTabs.Screen component={Teams} name={ScreenNameKeys.Teams} options={{headerShown: false}}/>
           <BottomTabs.Screen component={Games} name={ScreenNameKeys.Games} options={{headerShown: false}} />
+          <BottomTabs.Screen component={MyTeams} name='MyTeams' options={{headerShown: false}} />
         </BottomTabs.Navigator>
       );
     };
