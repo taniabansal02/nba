@@ -45,7 +45,7 @@ const GamesData = () => {
         'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
       },
     });
-    console.log(res.data.data);
+    // console.log(res.data.data);
     return res.data.data;
   });
   if (isLoading){

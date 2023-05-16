@@ -15,10 +15,11 @@ import { ScreenNameKeys } from '../../utils/constants/screenKey';
 import Header from '../../components/header';
 
 
-const Players = () => {
-  const onHandle = () => {
-    navigation.navigate(ScreenNameKeys.Home);
-  }
+const Players = (params) => {
+ 
+  const showbttn = params.route.params?.showbttn? params.route.params?.showbttn : false
+  const [show, setShow] = useState(false);
+
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.mainView}>
@@ -42,7 +43,7 @@ const Players = () => {
 
       {/* ******************* Render Player Data ********************* */}
       <View style={{marginBottom:194}}>
-        <PlayersData />
+        <PlayersData teamname = {params.route.params?.teamname} showbttn={showbttn} />
       </View>
     </SafeAreaView>
   );

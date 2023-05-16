@@ -11,7 +11,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const GamesProfilePage = (prop) => {
   const item = prop.route.params;
-  console.log(item);
+  // console.log(item);
 
   const navigation = useNavigation();
   const onHandle = () => {
