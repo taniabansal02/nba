@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         width: '90%',
         height: 45,
         marginHorizontal: 20,
-        
+        elevation: 5,
         borderRadius: 1,
       },
       searchIcon: {
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
       input: {
         fontSize: 16, 
         flex: 1, 
-        color: '#ffffff'
+        color: colors.black,
       },
       list:{
         marginTop: 20
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
       },
       text:{
-        color:'#ffffff'
+        color:colors.white,
       },
       playerView: {
         flexDirection: 'row',
@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
       },
       playerName:{
         color: colors.black, 
-        fontFamily: fonts.lato, 
+        fontFamily: fonts.MerriMedium, 
         fontSize: 18
       },
       playerid:{

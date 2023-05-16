@@ -25,7 +25,7 @@ const Home = () => {
     
   
       // <LinearGradient colors={['#dbdbdb'] } style={styles.linearGradient}>
-   <ScrollView style={{flex:1, backgroundColor:colors.white}}>
+   <ScrollView style={{flex:1, backgroundColor:'#F4F4F4'}}>
       <Header title='Dashboard' />
 
       
@@ -35,11 +35,11 @@ const Home = () => {
 
 
       {/* ******************* Upcomming Matches ********************* */}
-      {/* <Swiper autoplay paginationStyle={{ position: 'absolute', bottom: 300 }} dot={<View style={{ backgroundColor: '#4b4b4b', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>} activeDot={<View style={{ backgroundColor: '#ffff', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>}> */}
+      <Swiper autoplay paginationStyle={{ position: 'absolute', bottom: 300 }} dot={<View style={{ backgroundColor: '#4b4b4b', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>} activeDot={<View style={{ backgroundColor: '#ffff', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>}>
 
         {/* ****** Swiper Slider 1 ****** */}
 
-        {/* <SwiperDetails
+        <SwiperDetails
           slider1img={matches[0].img}
           heading='West - Conf. Semifinals'
           subheading='Game 4'
@@ -51,11 +51,11 @@ const Home = () => {
           team2logo={images.laker}
           team2name='Lakers'
           txt='LAL leads 3-1'
-        /> */}
+        />
 
         {/* ****** Swiper Slider 2 ****** */}
 
-        {/* <SwiperDetails
+        <SwiperDetails
           slider1img={matches[1].img}
           heading='East - Conf. Semifinals'
           subheading='Game 4'
@@ -68,7 +68,7 @@ const Home = () => {
           team2name='Heat'
           txt='MIA leads 3-1'
         />
-      </Swiper> */}
+      </Swiper>
       </ScrollView>
       // </LinearGradient>
     

@@ -16,6 +16,7 @@ import fonts from '../../../../assets/fonts';
 import { Strings } from '../../../../strings';
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
+import { colors } from '../../../../assets/theme/colors';
 
 
 
@@ -132,7 +133,7 @@ const onHandle= (item) => {
         <Image source={pngIcon.search} style={styles.searchIcon} />
         <TextInput
           placeholder="Search"
-          placeholderTextColor={'#ffff'}
+          placeholderTextColor={colors.black}
           style={styles.input}
           clearButtonMode="always"
           autoCapitalize="none"
@@ -140,6 +141,7 @@ const onHandle= (item) => {
           onChangeText={text => setSearchText(text)}
         />
       </View>
+      
 
       <FlatList
         data={filteredData}

@@ -42,7 +42,7 @@ const Players = (params) => {
         style={styles.horizontalLine}></View> */}
 
       {/* ******************* Render Player Data ********************* */}
-      <View style={{marginBottom:194}}>
+      <View style={styles.list}>
         <PlayersData teamname = {params.route.params?.teamname} showbttn={showbttn} />
       </View>
     </SafeAreaView>

@@ -2,12 +2,21 @@ export const Strings = {
    common : {
       home : 'HOME',
       games : 'GAMES',
-      teams : 'TEAMS',
+      teams : 'Browse Team',
       players : 'Browse Player',
       videos : 'VIDEOS',
       add : 'ADD',
+      loading: 'Loading',
       err : 'An error has occurred :',
       follow : 'Follow',
+      
+   },
+   navigation: {
+      home : 'Home',
+      player : 'Player',
+      teams : 'Teams',
+      games : 'Games',
+      createTeam : 'Create Team',
       
    }
 }

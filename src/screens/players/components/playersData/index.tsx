@@ -6,22 +6,19 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Strings } from '../../../../strings';
 import { useNavigation } from "@react-navigation/native";
-
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
-// import { interpolate } from 'react-native-reanimated';  
+import { colors } from '../../../../assets/theme/colors';
+
 interface Playerdata {
   teamname: string;
   showbttn?: boolean;
 }
-const PlayersData = ({ teamname , showbttn}: Playerdata) => {
-  console.log(showbttn)
 
+const PlayersData = ({ teamname , showbttn}: Playerdata) => {
+  // console.log(showbttn)
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
-  
-
 
   {/* ******************* Random colors ********************* */ }
   const generateColor = () => {
@@ -34,22 +31,25 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
   const onHandle = (item) => {
     navigation.navigate(ScreenNameKeys.ProfilePage, item);
   }
+
   const addfav = async (item) => {
-    console.log(item);
+    // console.log(item);
     const allplayer = await AsyncStorage.getItem(teamname);
     const setplayer = allplayer ? JSON.parse(allplayer) : [];
     const final = [...setplayer,item];
     await AsyncStorage.setItem(teamname, JSON.stringify(final));
-      console.log(final)
+      // console.log(final)
   }
+
   const addfavteamname = async() => {
     const allteam = await AsyncStorage.getItem('currentTeams');
     const settteam = allteam ? JSON.parse(allteam) : [];
     const finalteam = [...settteam,teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
-    console.log('finalteam' , finalteam)
+    // console.log('finalteam' , finalteam)
     navigation.navigate('MyTeams')
   }
+
   {/* ******************* Players API ********************* */ }
   const { isLoading, error, data } = useQuery('Players', async () => {
     const res = await axios.get('https://free-nba.p.rapidapi.com/players', {
@@ -68,7 +68,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
   if (isLoading) {
     return (
       <View>
-        <Text style={styles.text}> Loading </Text>
+        <Text style={styles.text}> {Strings.common.loading} </Text>
       </View>
     )
   }
@@ -98,7 +98,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
             <View style={styles.playerRow}>
               <Text
                 style={styles.playerName}>
-                {item?.first_name ? item.first_name : null}
+                {item?.first_name ? item.first_name : null}{' '}
               </Text>
               <Text
                 style={styles.playerName}>
@@ -144,12 +144,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
       i?.last_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
-  // if(showbttn){
-  //   setshow(true)
-  // }
-  // else{
-  //   setshow(false)
-  // }
+  
   return (
     <View>
       {/* ******************* Search Bar ********************* */}
@@ -157,7 +152,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
         <Image source={pngIcon.search} style={styles.searchIcon} />
         <TextInput
           placeholder="Search"
-          placeholderTextColor={'#ffff'}
+          placeholderTextColor={colors.black}
           style={styles.input}
           clearButtonMode="always"
           autoCapitalize="none"

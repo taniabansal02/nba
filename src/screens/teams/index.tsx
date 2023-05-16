@@ -12,6 +12,7 @@ import TeamsData from './components/teamData';
 import { Strings } from '../../strings';
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNameKeys } from '../../utils/constants/screenKey';
+import Header from '../../components/header';
 
 
 
@@ -24,7 +25,8 @@ const Teams = () => {
   return (
     <SafeAreaView style={styles.mainView}>
       {/* ******************* Header ********************* */}
-      <View
+      <Header img={pngIcon.backArrow} title={Strings.common.teams} />
+      {/* <View
         style={styles.headerView}>
         <TouchableOpacity onPress={() => onHandle()}>
           <Image source={pngIcon.backArrow} style={{marginLeft: 10}} />
@@ -34,14 +36,14 @@ const Teams = () => {
           style={styles.headerText}>
           {Strings.common.teams}
         </Text>
-      </View>
+      </View> */}
 
       {/* ******************* Horizontal Line ********************* */}
-      <View
-        style={styles.horizontalLine}></View>
+      {/* <View
+        style={styles.horizontalLine}></View> */}
 
       {/* ******************* Render Player Data ********************* */}
-      <View style={{marginBottom:194}}>
+      <View style={styles.list}>
         <TeamsData />
       </View>
      

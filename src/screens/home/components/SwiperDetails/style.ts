@@ -5,7 +5,7 @@ import { colors } from '../../../../assets/theme/colors';
 export const styles = StyleSheet.create({
     
     swiperView: {
-        backgroundColor: colors.bg,
+        backgroundColor: colors.cardbg,
         // '#cfe0da',
         height: 470,
         marginHorizontal: 14,
