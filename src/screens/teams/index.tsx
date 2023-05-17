@@ -25,22 +25,7 @@ const Teams = () => {
   return (
     <SafeAreaView style={styles.mainView}>
       {/* ******************* Header ********************* */}
-      <Header img={pngIcon.backArrow} title={Strings.common.teams} />
-      {/* <View
-        style={styles.headerView}>
-        <TouchableOpacity onPress={() => onHandle()}>
-          <Image source={pngIcon.backArrow} style={{marginLeft: 10}} />
-          </TouchableOpacity>
-        
-        <Text
-          style={styles.headerText}>
-          {Strings.common.teams}
-        </Text>
-      </View> */}
-
-      {/* ******************* Horizontal Line ********************* */}
-      {/* <View
-        style={styles.horizontalLine}></View> */}
+      <Header img={pngIcon.backArrow} title={Strings.common.teams} fun={() => onHandle()}/>
 
       {/* ******************* Render Player Data ********************* */}
       <View style={styles.list}>

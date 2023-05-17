@@ -18,5 +18,8 @@ export const Strings = {
       games : 'Games',
       createTeam : 'Create Team',
       
+   },
+   teams : {
+      myTeam : 'My Teams',
    }
 }

@@ -8,6 +8,6 @@ export const styles = StyleSheet.create({
         flex: 1
     },
    list: {
-    marginBottom:194
+    marginBottom: 277
   }
 })
