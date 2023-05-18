@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         color: '#ffffff',
     }, 
     list : {
-      marginBottom:194
+      marginBottom: 280,
     }
     
 })
