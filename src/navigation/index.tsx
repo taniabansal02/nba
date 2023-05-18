@@ -15,10 +15,10 @@ import GamesProfilePage from '../screens/gamesProfilePage';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors} from '../assets/theme/colors';
 import MyTeams from '../screens/myTeams';
-import CreateTeam from '../screens/createTeam';
-import News from '../screens/news';
+import MyTeamDetail from '../screens/myTeamDetail';
 import {styles} from './style';
 import { Strings } from '../strings';
+
 
 const Stack = createStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -46,7 +46,7 @@ const Navigation = () => {
                     size={30}
                     color={'#e32f'}
                   />
-                  <Text style={styles.tabBarActiveLabel}>{Strings.navigation.home}</Text>
+                  <Text style={styles.tabBarActiveLabel}>{Strings.bottomTab.home}</Text>
                 </View>
               ) : (
                 <View style={styles.iconView}>
@@ -55,7 +55,7 @@ const Navigation = () => {
                     size={30}
                     color={'#727272'}
                   />
-                  <Text style={styles.tabBarInactiveLabel}>{Strings.navigation.home}</Text>
+                  <Text style={styles.tabBarInactiveLabel}>{Strings.bottomTab.home}</Text>
                 </View>
               ),
             tabBarStyle: {
@@ -90,7 +90,7 @@ const Navigation = () => {
                     size={30}
                     color={'#e32f'}
                   />
-                  <Text style={styles.tabBarActiveLabel}>{Strings.navigation.player}</Text>
+                  <Text style={styles.tabBarActiveLabel}>{Strings.bottomTab.player}</Text>
                 </View>
               ) : (
                 <View style={styles.iconView}>
@@ -99,7 +99,7 @@ const Navigation = () => {
                     size={30}
                     color={'#727272'}
                   />
-                  <Text style={styles.tabBarInactiveLabel}>{Strings.navigation.player}</Text>
+                  <Text style={styles.tabBarInactiveLabel}>{Strings.bottomTab.player}</Text>
                 </View>
               ),
             tabBarStyle: {
@@ -134,7 +134,7 @@ const Navigation = () => {
                     size={30}
                     color={'#e32f'}
                   />
-                  <Text style={styles.tabBarActiveLabel}>{Strings.navigation.teams}</Text>
+                  <Text style={styles.tabBarActiveLabel}>{Strings.bottomTab.teams}</Text>
                 </View>
               ) : (
                 <View style={styles.iconView}>
@@ -143,7 +143,7 @@ const Navigation = () => {
                     size={30}
                     color={'#727272'}
                   />
-                  <Text style={styles.tabBarInactiveLabel}>{Strings.navigation.teams}</Text>
+                  <Text style={styles.tabBarInactiveLabel}>{Strings.bottomTab.teams}</Text>
                 </View>
               ),
             tabBarStyle: {
@@ -178,7 +178,7 @@ const Navigation = () => {
                     size={30}
                     color={'#e32f'}
                   />
-                  <Text style={styles.tabBarActiveLabel}>{Strings.navigation.games}</Text>
+                  <Text style={styles.tabBarActiveLabel}>{Strings.bottomTab.games}</Text>
                 </View>
               ) : (
                 <View style={styles.iconView}>
@@ -187,7 +187,7 @@ const Navigation = () => {
                     size={30}
                     color={'#727272'}
                   />
-                  <Text style={styles.tabBarInactiveLabel}>{Strings.navigation.games}</Text>
+                  <Text style={styles.tabBarInactiveLabel}>{Strings.bottomTab.games}</Text>
                 </View>
               ),
             tabBarStyle: {
@@ -222,7 +222,7 @@ const Navigation = () => {
                     size={30}
                     color={'#e32f'}
                   />
-                  <Text style={styles.tabBarActiveLabel}>{Strings.navigation.createTeam}</Text>
+                  <Text style={styles.tabBarActiveLabel}>{Strings.bottomTab.createTeam}</Text>
                 </View>
               ) : (
                 <View style={styles.iconView}>
@@ -231,7 +231,7 @@ const Navigation = () => {
                     size={30}
                     color={'#727272'}
                   />
-                  <Text style={styles.tabBarInactiveLabel}>{Strings.navigation.createTeam}</Text>
+                  <Text style={styles.tabBarInactiveLabel}>{Strings.bottomTab.createTeam}</Text>
                 </View>
               ),
             tabBarStyle: {
@@ -292,14 +292,14 @@ const Navigation = () => {
           component={GamesProfilePage}
           options={{headerShown: false}}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name={ScreenNameKeys.CreateTeam}
           component={CreateTeam}
           options={{headerShown: false}}
-        />
+        /> */}
         <Stack.Screen
-          name={'News'}
-          component={News}
+          name={ScreenNameKeys.MyTeamDetail}
+          component={MyTeamDetail}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

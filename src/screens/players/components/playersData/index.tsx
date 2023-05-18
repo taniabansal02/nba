@@ -3,7 +3,7 @@ import { View, Text, FlatList, Image, TouchableOpacity, ActivityIndicator, TextI
 import { styles } from './style';
 import pngIcon from '../../../../assets/icons';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import axios, { all } from 'axios';
 import { Strings } from '../../../../strings';
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -33,7 +33,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
   }
 
   const addfav = async (item) => {
-    // console.log(item);
+    console.log(item);
     const allplayer = await AsyncStorage.getItem(teamname);
     const setplayer = allplayer ? JSON.parse(allplayer) : [];
     const final = [...setplayer,item];
@@ -43,6 +43,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
 
   const addfavteamname = async() => {
     const allteam = await AsyncStorage.getItem('currentTeams');
+    console.log('All teams', allteam);
     const settteam = allteam ? JSON.parse(allteam) : [];
     const finalteam = [...settteam,teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));

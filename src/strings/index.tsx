@@ -10,8 +10,9 @@ export const Strings = {
       err : 'An error has occurred :',
       follow : 'Follow',
       
+      
    },
-   navigation: {
+   bottomTab : {
       home : 'Home',
       player : 'Player',
       teams : 'Teams',

@@ -27,17 +27,18 @@ const MyTeams = () => {
     }
     const isfocused = useIsFocused();
     const itemclik = (item) => {
-        console.log('myitem' , item)
-        navigation.navigate('News' , {item})
+        // console.log('myitem' , item)
+        navigation.navigate(ScreenNameKeys.MyTeamDetail , {item})
     }
   useEffect(() => {
     getteamnames();
   }, [isfocused]);
     const renderItem = ({item}) => {
-        console.log(item);
+        // console.log(item);
 
         return(
             <TouchableOpacity onPress={()=>itemclik(item)} ><Text>{item}</Text></TouchableOpacity>
+            
             
         )
     }
@@ -56,7 +57,6 @@ const MyTeams = () => {
                 autoCorrect={false}
                 onChangeText={val => setTeamname(val)}
                 />
-
                 </View>
                 
             <TouchableOpacity onPress={() => navigateToPlayers()} style={styles.btn}>
