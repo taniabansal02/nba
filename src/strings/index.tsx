@@ -9,6 +9,7 @@ export const Strings = {
       loading: 'Loading',
       err : 'An error has occurred :',
       follow : 'Follow',
+      delete : 'Delete',
       
       
    },
@@ -22,5 +23,7 @@ export const Strings = {
    },
    teams : {
       myTeam : 'My Teams',
+      addTeam : 'Add Team',
+      listOfTeams : 'List of all Teams',
    }
 }

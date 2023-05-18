@@ -15,7 +15,7 @@ interface Playerdata {
   showbttn?: boolean;
 }
 
-const PlayersData = ({ teamname , showbttn}: Playerdata) => {
+const PlayersData = ({ teamname, showbttn }: Playerdata) => {
   // console.log(showbttn)
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
@@ -36,16 +36,16 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
     console.log(item);
     const allplayer = await AsyncStorage.getItem(teamname);
     const setplayer = allplayer ? JSON.parse(allplayer) : [];
-    const final = [...setplayer,item];
+    const final = [...setplayer, item];
     await AsyncStorage.setItem(teamname, JSON.stringify(final));
-      // console.log(final)
+    // console.log(final)
   }
 
-  const addfavteamname = async() => {
+  const addfavteamname = async () => {
     const allteam = await AsyncStorage.getItem('currentTeams');
     console.log('All teams', allteam);
     const settteam = allteam ? JSON.parse(allteam) : [];
-    const finalteam = [...settteam,teamname];
+    const finalteam = [...settteam, teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
     // console.log('finalteam' , finalteam)
     navigation.navigate('MyTeams')
@@ -85,8 +85,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
   const getPlayers = ({ item }) => {
     return (
       <TouchableOpacity onPress={() => onHandle(item)}>
-        <View
-          style={styles.playerView}>
+        <View style={styles.playerView}>
 
           {/* ******************* Icons ********************* */}
           <View
@@ -122,13 +121,8 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
           {/* ******************* Add Button ********************* */}
           <View
             style={styles.buttonView}>
-            <TouchableOpacity
-              onPress={() => addfav(item)}
-              style={styles.btn}>
-              <Text
-                style={styles.btnTxt}>
-                {Strings.common.add}
-              </Text>
+            <TouchableOpacity onPress={() => addfav(item)} style={styles.btn}>
+              <Text style={styles.btnTxt}>{Strings.common.add}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -145,7 +139,7 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
       i?.last_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
-  
+
   return (
     <View>
       {/* ******************* Search Bar ********************* */}
@@ -161,14 +155,14 @@ const PlayersData = ({ teamname , showbttn}: Playerdata) => {
           onChangeText={text => setSearchText(text)}
         />
       </View>
-      {showbttn? <Button title='done' onPress={addfavteamname}/>:null}
-     
+      {showbttn ? <Button title='done' onPress={addfavteamname} /> : null}
+
       <FlatList
         data={filteredData}
         renderItem={getPlayers}
         style={styles.list}
       />
-      
+
     </View>
   );
 };

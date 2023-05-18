@@ -262,7 +262,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <Stack.Navigator>
         {showSplash ? (
           <Stack.Screen

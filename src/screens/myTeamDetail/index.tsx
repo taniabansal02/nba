@@ -5,10 +5,18 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors } from "../../assets/theme/colors";
 import Header from "../../components/header";
 import pngIcon from "../../assets/icons";
+import { useNavigation } from "@react-navigation/native";
+import { ScreenNameKeys } from "../../utils/constants/screenKey";
 
 const MyTeamDetail = (params) => {
+  const navigation = useNavigation();
     const [data,setData] = useState('');
     const key = params.route?.params?.item;
+
+   const navigateToMyTeams = () => {
+    navigation.navigate(ScreenNameKeys.MyTeams);
+   }
+
     const generateColor = () => {
         const randomColor = Math.floor(Math.random() * 16777215)
           .toString(16)
@@ -39,25 +47,13 @@ const MyTeamDetail = (params) => {
           {/* ******************* Player Details ********************* */}
           <View style={styles.playerDetails}>
             <View style={styles.playerRow}>
-              <Text
-                style={styles.playerName}>
-                {item?.item?.first_name ? item?.item?.first_name : null}{' '}
-              </Text>
-              <Text
-                style={styles.playerName}>
-                {item?.item?.last_name ? item?.item?.last_name : null}
-              </Text>
+              <Text style={styles.playerName}>{item?.item?.first_name ? item?.item?.first_name : null}{' '}</Text>
+              <Text style={styles.playerName}>{item?.item?.last_name ? item?.item?.last_name : null}</Text>
             </View>
 
             <View style={styles.playerRow}>
-              <Text
-                style={styles.playerid}>
-                #{item?.item?.id ? item?.item?.id : null} |{' '}
-              </Text>
-              <Text
-                style={styles.playerid}>
-                {item?.item?.position ? item?.item?.position : null}
-              </Text>
+              <Text style={styles.playerid}> #{item?.item?.id ? item?.item?.id : null} |{' '} </Text>
+              <Text style={styles.playerid}> {item?.item?.position ? item?.item?.position : null} </Text>
             </View>
           </View> 
             </View>
@@ -65,8 +61,8 @@ const MyTeamDetail = (params) => {
      }
     return(
         <View style={{backgroundColor:colors.greybg}}>
-            <Header img={pngIcon.backArrow} title={key} />
-            <Text > 
+            <Header img={pngIcon.backArrow} title={key} fun={() => navigateToMyTeams()}/>
+            <Text style={styles.heading}> 
                 List Of Players
             </Text>
             <FlatList data={data} renderItem={renderItem}/>

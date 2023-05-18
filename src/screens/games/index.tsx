@@ -6,6 +6,7 @@ import pngIcon from '../../assets/icons';
 import GamesData from './components/gamesData';
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNameKeys } from '../../utils/constants/screenKey';
+import Header from '../../components/header';
 
 const Games = () => {
   const onHandle = () => {
@@ -14,14 +15,10 @@ const Games = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.mainView}>
-      <View style={styles.headerView}>
-      <TouchableOpacity onPress={() => onHandle()}>
-          <Image source={pngIcon.backArrow} style={{marginLeft: 10}} />
-          </TouchableOpacity>
-        <Text style={styles.headerText}>{Strings.common.games}</Text>
-      </View>
+      <Header img={pngIcon.backArrow} title={Strings.common.games} fun={() => onHandle()} />
+     
       {/* ******************* Games card ********************* */}
-      <View style={{marginBottom:194}}>
+      <View style={styles.list}>
         <GamesData />
       </View>
     </SafeAreaView>

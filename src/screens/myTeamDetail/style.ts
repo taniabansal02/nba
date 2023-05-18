@@ -2,7 +2,16 @@ import { StyleSheet } from 'react-native';
 import fonts from '../../assets/fonts';
 import { colors } from '../../assets/theme/colors';
 
+
 export const styles = StyleSheet.create({
+  heading : { 
+    marginTop: 15, 
+    marginHorizontal: 20, 
+    fontFamily: fonts.MerriBold, 
+    color: colors.black, 
+    fontSize: 20, 
+    marginBottom: 15 
+  },
       playerView: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -35,5 +44,8 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.lato, 
         fontSize: 17
       },
+      text:{
+        color: colors.white,
+      }
       
 });

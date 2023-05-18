@@ -30,9 +30,9 @@ export const styles = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center'
       },
-      text:{
+     text:{
         color:colors.white,
-      },
+      }, 
       playerView: {
         flexDirection: 'row',
         alignItems: 'center',

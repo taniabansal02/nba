@@ -19,6 +19,36 @@ export const styles = StyleSheet.create({
       borderRadius: 1,
       paddingLeft: 10,
       },  
+      heading : { 
+        marginTop: 15, 
+        marginHorizontal: 15, 
+        fontFamily: fonts.MerriBold, 
+        color: colors.black, 
+        fontSize: 20, 
+        marginBottom: 15 
+      },
+     
+      playerView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 1,
+        backgroundColor: colors.white,
+        height: 70,
+        
+      },
+      playerDetails : {
+        flexDirection:'column',
+        marginLeft: 20
+      },
+      playerRow:{
+        flexDirection: 'row'
+      },
+      playerName:{
+        color: colors.black, 
+        fontFamily: fonts.MerriMedium, 
+        fontSize: 18
+      },
+      
       btn:{
         backgroundColor: colors.greyHeading,
         height: 45,
@@ -32,5 +62,15 @@ export const styles = StyleSheet.create({
         color: colors.white, 
         fontFamily: fonts.lato, 
         fontSize: 16
-      }
+      }, 
+      buttonView:{
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        marginRight: 20,
+      },
+      text:{
+        color:colors.white,
+      },
+     
 })
