@@ -17,6 +17,7 @@ const images = {
     common : require('./common.png'),
     logoCommon : require('./logoCommon.jpg'),
     match : require('./match.jpg'),
+    splashphoto : require('./splashphoto.png'),
 };
 
 export default images;

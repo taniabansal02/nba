@@ -1,6 +1,7 @@
 
 export enum ScreenNameKeys {
     Splash = 'Splash',
+    SplashDetail = 'SplashDetail',
     Home = 'Home',
     Players = 'Players',
     Teams = 'Teams',
@@ -10,4 +11,5 @@ export enum ScreenNameKeys {
     GamesProfilePage = 'GamesProfilePage',
     MyTeams = 'MyTeams',
     MyTeamDetail = 'MyTeamDetail',
+    Bottomtab = 'BottomNavigation',
 }

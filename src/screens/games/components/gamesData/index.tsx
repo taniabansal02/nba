@@ -1,30 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
-  SafeAreaView,
   Image,
   TextInput,
-  ActivityIndicator,
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import { styles } from './style';
+import {styles} from './style';
 import pngIcon from '../../../../assets/icons';
-import { useQuery } from 'react-query';
+import {useQuery} from 'react-query';
 import axios from 'axios';
-import { Strings } from '../../../../strings';
-import fonts from '../../../../assets/fonts';
-import { useNavigation } from "@react-navigation/native";
-import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
-import { colors } from '../../../../assets/theme/colors';
-
-
+import {Strings} from '../../../../strings';
+import {useNavigation} from '@react-navigation/native';
+import {ScreenNameKeys} from '../../../../utils/constants/screenKey';
+import {colors} from '../../../../assets/theme/colors';
 
 const GamesData = () => {
+  const [searchText, setSearchText] = useState('');
   const navigation = useNavigation();
 
-  { /* ******************* Random colors ********************* */ }
+  {
+    /* ******************* Random colors ********************* */
+  }
   const generateColor = () => {
     const randomColor = Math.floor(Math.random() * 16777215)
       .toString(16)
@@ -32,19 +30,20 @@ const GamesData = () => {
     return `#${randomColor}`;
   };
 
-  const onHandle = (item) => {
+  const onHandle = item => {
     navigation.navigate(ScreenNameKeys.GamesProfilePage, item);
-  }
+  };
 
-  {  /* ******************* Games API ********************* */ }
-  const { isLoading, error, data } = useQuery('Games', async () => {
+  {
+    /* ******************* Games API ********************* */
+  }
+  const {isLoading, error, data} = useQuery('Games', async () => {
     const res = await axios.get('https://free-nba.p.rapidapi.com/games', {
       headers: {
         'X-RapidAPI-Key': 'b92d35722emshdb1f96ecbf0e730p1497f4jsn124949e0a308',
         'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
       },
     });
-    // console.log(res.data.data);
     return res.data.data;
   });
   if (isLoading) {
@@ -52,104 +51,98 @@ const GamesData = () => {
       <View>
         <Text style={styles.text}>{Strings.common.loading}</Text>
       </View>
-    )
+    );
   }
   if (error) {
     return (
       <View>
-        <Text style={styles.text}>{Strings.common.err} {error.message}</Text>
+        <Text style={styles.text}>
+          {Strings.common.err} {error.message}
+        </Text>
       </View>
     );
   }
 
-  { /* ******************* Render Gamess Data ********************* */ }
-  const getGames = ({ item }) => {
-
-
+  {
+    /* ******************* Render Gamess Data ********************* */
+  }
+  const getGames = ({item}) => {
+  
     return (
       <TouchableOpacity onPress={() => onHandle(item)}>
+        <View style={styles.mainview}>
+          <Text style={styles.heading}>
+            {' '}
+            {item?.home_team?.conference ? item.home_team.conference : null} -
+            Config. {item.status}
+          </Text>
 
-        {/* <View style={styles.container}>
-        <Text style={styles.heading}>{item?.home_team?.conference?item.home_team.conference : null} - Config. {item.status}</Text>
-
-            <View style={{flexDirection:'row', justifyContent:'space-between', , marginTop: 15 }}>
-            <View style={{backgroundColor: generateColor(), height:52, width:52, borderRadius:50, alignItems:'center', justifyContent:'center' }}>
-                <View style={{backgroundColor:generateColor(), height:55, width:55, borderRadius:50, alignItems:'center', justifyContent:'center', }}>
-                    <Text style={{color:'#ffffff'}}>{item?.home_team?.city[0]? item.home_team.city[0] : null }{ item?.home_team?.name[0] ? item.home_team.name[0] : null}</Text>
-                    
-                </View>
-               
-
-                <View style={{ marginTop:25, marginLeft:-20}}>
-                <Text style={{color:'white', fontFamily:fonts.lato, fontSize:30, fontWeight:'500', }}>{item?.home_team_score ? item.home_team_score : null}</Text>   
-                </View>
-
-
-                <View style={{flexDirection:'column', marginTop:20}}>
-                <Text style={styles.text}> {item?.season ? item.season : null}</Text>
-                <Text style={styles.text}> {item?.status ? item.status : null}</Text>
-                </View>
-                
-
-
-                <View style={{ marginTop:25, marginRight:-20}}>
-                <Text style={{color:'white', fontFamily:fonts.lato, fontSize:30, fontWeight:'500'}}>{item?.visitor_team_score ? item.visitor_team_score : null}</Text>
-                </View>
-
-                <View style={{backgroundColor:generateColor(), height:55, width:55, borderRadius:50, alignItems:'center', justifyContent:'center', }}>
-                    <Text style={{color:'#ffffff'}}>{item?.visitor_team?.city[0]? item.visitor_team.city[0] : null }{item?.visitor_team?.name[0] ? item.visitor_team.name[0] : null}</Text>
-                </View>
-
-                
-
-            </View>
-
-        </View>
-        <View>
-
-        </View> */}
-        <View style={{ backgroundColor: colors.white, flex: 1, marginBottom: 2, height: 140 }}>
-          <Text style={{ alignSelf: 'center', color: colors.greyHeadingText, marginTop: 6, fontFamily: fonts.MerriMedium }}> {item?.home_team?.conference ? item.home_team.conference : null} - Config. {item.status}</Text>
-
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginHorizontal: 7, marginTop: 15 }}>
-
-            <View style={{ justifyContent: 'flex-start', flex: 1, alignItems: 'center' }}>
-              <View style={{ backgroundColor: generateColor(), height: 52, width: 52, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}>
-                <Text style={{ color: '#ffffff' }}>{item?.home_team?.city[0] ? item.home_team.city[0] : null}{item?.home_team?.name[0] ? item.home_team.name[0] : null}</Text>
+          <View style={styles.container}>
+            <View style={styles.gameView}>
+              <View style={[styles.icons, {backgroundColor: generateColor()}]}>
+                <Text style={styles.text}>
+                  {item?.home_team?.city[0] ? item.home_team.city[0] : null}
+                  {item?.home_team?.name[0] ? item.home_team.name[0] : null}
+                </Text>
               </View>
-              <View >
-                <Text style={{ color: colors.black, alignSelf: 'center', fontFamily: fonts.MerriRegular }}>{item.home_team.full_name}</Text>
+              <View>
+                <Text style={styles.gameName}>{item.home_team.full_name}</Text>
               </View>
             </View>
 
-            <View style={{ justifyContent: 'center' , marginTop:-20}}>
-              <Text style={{ color: colors.active, fontFamily: fonts.MerriMedium, fontSize: 28, fontWeight: '500', }}>{item?.home_team_score ? item.home_team_score : null}</Text>
+            <View style={styles.scoreTextView}>
+              <Text style={styles.scoreTeam1}>
+                {item?.home_team_score ? item.home_team_score : null}
+              </Text>
             </View>
 
-            <View style={{ flexDirection: 'column', marginTop: 20, justifyContent: 'flex-start', flex: 1, alignItems: 'center' }}>
-              <Text style={{ color: colors.black, fontFamily: fonts.MerriRegular }}> {item?.season ? item.season : null}</Text>
-              <Text style={{ color: colors.black , fontFamily: fonts.MerriRegular}}> {item?.status ? item.status : null}</Text>
+            <View style={styles.detailView}>
+              <Text style={styles.detailText}>
+                {' '}
+                {item?.season ? item.season : null}
+              </Text>
+              <Text style={styles.detailText}>
+                {' '}
+                {item?.status ? item.status : null}
+              </Text>
             </View>
 
-            <View style={{ justifyContent: 'center' , marginTop:-20}}>
-              <Text style={{ color: colors.headerBg, fontFamily: fonts.MerriMedium, fontSize: 28, fontWeight: '500', }}>{item?.visitor_team_score ? item.visitor_team_score : null}</Text>
+            <View style={styles.scoreTextView}>
+              <Text style={styles.scoreteam2}>
+                {item?.visitor_team_score ? item.visitor_team_score : null}
+              </Text>
             </View>
 
-            <View style={{ justifyContent: 'flex-end', flex: 1, alignItems: 'center' }}>
-              <View style={{ backgroundColor: generateColor(), height: 52, width: 52, borderRadius: 50, alignItems: 'center', justifyContent: 'center' }}>
-                <Text style={{ color: '#ffffff' }}>{item?.visitor_team?.city[0] ? item.visitor_team.city[0] : null}{item?.visitor_team?.name[0] ? item.visitor_team.name[0] : null}</Text>
+            <View style={styles.team2NameView}>
+              <View style={[styles.icons, {backgroundColor: generateColor()}]}>
+                <Text style={styles.text}>
+                  {item?.visitor_team?.city[0]
+                    ? item.visitor_team.city[0]
+                    : null}
+                  {item?.visitor_team?.name[0]
+                    ? item.visitor_team.name[0]
+                    : null}
+                </Text>
               </View>
-              <View >
-                <Text style={{ color: colors.black, alignSelf: 'center', fontFamily: fonts.MerriRegular }}>{item.visitor_team.full_name}</Text>
+              <View>
+                <Text style={styles.gameName}>
+                  {item.visitor_team.full_name}
+                </Text>
               </View>
             </View>
           </View>
-
         </View>
       </TouchableOpacity>
-
     );
   };
+
+    {/* ******************* Logic for searching ********************* */ }
+  const filteredData = data.filter((i) => {
+    return (
+      i?.home_team?.full_name?.toLowerCase().match(searchText.toLowerCase()) ||
+      i?.visior_team?.last_name?.toLowerCase().match(searchText.toLowerCase())
+    );
+  });
 
   return (
     <View>
@@ -163,13 +156,13 @@ const GamesData = () => {
           clearButtonMode="always"
           autoCapitalize="none"
           autoCorrect={false}
-        //   onChangeText={text => setSearchText(text)}
+          onChangeText={text => setSearchText(text)}
         />
       </View>
 
       {/* ******************* Games card ********************* */}
       <FlatList
-        data={data}
+        data={filteredData}
         renderItem={getGames}
         style={styles.list}></FlatList>
     </View>

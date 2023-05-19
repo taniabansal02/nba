@@ -7,6 +7,7 @@ import Header from "../../components/header";
 import pngIcon from "../../assets/icons";
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNameKeys } from "../../utils/constants/screenKey";
+import { Strings } from "../../strings";
 
 const MyTeamDetail = (params) => {
   const navigation = useNavigation();
@@ -27,14 +28,12 @@ const MyTeamDetail = (params) => {
     const getdetails = async() =>{
         const mydata= await AsyncStorage.getItem(key);
         setData(JSON.parse(mydata));
-        console.log('data' , JSON.parse(mydata));
     }
      useEffect(()=>{
         getdetails();
      },[])
 
      const renderItem = (item) => {
-        console.log('itemmmmm', item)
         return(
             <View style={styles.playerView}>
 
@@ -44,7 +43,7 @@ const MyTeamDetail = (params) => {
             <Text style={styles.text}> {item?.item.first_name[0] ? item.item.first_name[0] : null}{item?.item.last_name[0] ? item.item.last_name[0] : null} </Text>
           </View>
 
-          {/* ******************* Player Details ********************* */}
+          {/* ******************* Team Details ********************* */}
           <View style={styles.playerDetails}>
             <View style={styles.playerRow}>
               <Text style={styles.playerName}>{item?.item?.first_name ? item?.item?.first_name : null}{' '}</Text>
@@ -63,7 +62,7 @@ const MyTeamDetail = (params) => {
         <View style={{backgroundColor:colors.greybg}}>
             <Header img={pngIcon.backArrow} title={key} fun={() => navigateToMyTeams()}/>
             <Text style={styles.heading}> 
-                List Of Players
+                {Strings.teams.listOfPlayers}
             </Text>
             <FlatList data={data} renderItem={renderItem}/>
         </View>

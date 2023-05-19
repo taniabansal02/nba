@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, ActivityIndicator, TextInput, Button } from 'react-native';
+import React, {useState } from 'react';
+import { View, Text, FlatList, Image, TouchableOpacity,  TextInput, Button } from 'react-native';
 import { styles } from './style';
 import pngIcon from '../../../../assets/icons';
 import { useQuery } from 'react-query';
@@ -16,9 +16,10 @@ interface Playerdata {
 }
 
 const PlayersData = ({ teamname, showbttn }: Playerdata) => {
-  // console.log(showbttn)
+  
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
+  const [isData, setIsData] = useState(false);
 
   {/* ******************* Random colors ********************* */ }
   const generateColor = () => {
@@ -33,22 +34,21 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
   }
 
   const addfav = async (item) => {
-    console.log(item);
     const allplayer = await AsyncStorage.getItem(teamname);
     const setplayer = allplayer ? JSON.parse(allplayer) : [];
     const final = [...setplayer, item];
     await AsyncStorage.setItem(teamname, JSON.stringify(final));
-    // console.log(final)
+    setIsData(true);
   }
 
   const addfavteamname = async () => {
+    
     const allteam = await AsyncStorage.getItem('currentTeams');
-    console.log('All teams', allteam);
     const settteam = allteam ? JSON.parse(allteam) : [];
     const finalteam = [...settteam, teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
-    // console.log('finalteam' , finalteam)
-    navigation.navigate('MyTeams')
+    navigation.navigate('MyTeams');
+    setIsData(false);
   }
 
   {/* ******************* Players API ********************* */ }
@@ -63,7 +63,6 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
         'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
       },
     });
-    //  console.log(res.data.data);
     return res.data.data;
   });
   if (isLoading) {
@@ -155,7 +154,20 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
           onChangeText={text => setSearchText(text)}
         />
       </View>
-      {showbttn ? <Button title='done' onPress={addfavteamname} /> : null}
+      
+        
+
+      
+      
+      {showbttn && isData ?  
+      <View style={{flex:1, backgroundColor:'red', alignItems:'center', justifyContent:'center', marginTop:30, marginBottom: 20}}>
+       <TouchableOpacity onPress={addfavteamname} style={styles.btn}>
+       <Text style={styles.btnTxt}> {Strings.splash.next}</Text>
+        </TouchableOpacity>
+        </View>
+       : null
+      // <Button title='done' onPress={addfavteamname} /> : null
+    }
 
       <FlatList
         data={filteredData}

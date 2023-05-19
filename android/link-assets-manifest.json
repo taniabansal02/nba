@@ -3,7 +3,7 @@
   "data": [
     {
       "path": "src/assets/fonts/index.tsx",
-      "sha1": "c935de9bc5bbbb2a6d85f4ed0b78a11cfd9f514c"
+      "sha1": "22a102b43cc284011aca9a1aeb162a32e8ba49be"
     },
     {
       "path": "src/assets/fonts/Lato-Bold.ttf",
@@ -20,6 +20,10 @@
     {
       "path": "src/assets/fonts/MerriweatherSans-ExtraBold.ttf",
       "sha1": "4c76e0d3338b14b31b75907b2da12ecfbc709eb3"
+    },
+    {
+      "path": "src/assets/fonts/MerriweatherSans-ExtraBoldItalic.ttf",
+      "sha1": "b45f1c42a5cc63dfb40ec0f19e159fe94da3ee66"
     },
     {
       "path": "src/assets/fonts/MerriweatherSans-Light.ttf",

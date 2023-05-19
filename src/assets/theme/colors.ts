@@ -9,7 +9,9 @@ const palette = {
     grey3 : '#8f9299',
     active : '#e32f45',
     inactive : '#717171',
-    cardbg : '#DBF0E9'
+    cardbg : '#DBF0E9',
+    splashColor : '#F6AD76',
+    btncolor : '#282E46',
 };
 
 export const colors = {
@@ -21,5 +23,6 @@ export const colors = {
     scoreTxt : palette.grey3,
     activeIcon : palette.active,
     inactiveIcon : palette.inactive ,
+    splashBg : palette.splashColor,
     ...palette
 }

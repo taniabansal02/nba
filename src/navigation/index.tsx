@@ -18,6 +18,7 @@ import MyTeams from '../screens/myTeams';
 import MyTeamDetail from '../screens/myTeamDetail';
 import {styles} from './style';
 import { Strings } from '../strings';
+import SplashDetail from '../screens/splashDetail';
 
 
 const Stack = createStackNavigator();
@@ -258,7 +259,7 @@ const Navigation = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowSplash(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
@@ -271,9 +272,15 @@ const Navigation = () => {
             options={{headerShown: false}}
           />
         ) : null}
+
+<Stack.Screen
+          name={ScreenNameKeys.SplashDetail}
+          component={SplashDetail}
+          options={{headerShown: false}}
+        />
        
         <Stack.Screen
-          name="BottomNavigation"
+          name={ScreenNameKeys.Bottomtab}
           component={BottomNavigation}
           options={{headerShown: false}}
         />

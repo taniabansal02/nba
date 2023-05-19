@@ -21,9 +21,15 @@ export const Strings = {
       createTeam : 'Create Team',
       
    },
+   splash : {
+     hey : 'Hey Buddy !',
+     play : 'Lets Play ...',
+     next : 'Next',
+   },
    teams : {
       myTeam : 'My Teams',
-      addTeam : 'Add Team',
+      addTeam : 'Create Team',
       listOfTeams : 'List of all Teams',
+      listOfPlayers : 'List Of Players',
    }
 }

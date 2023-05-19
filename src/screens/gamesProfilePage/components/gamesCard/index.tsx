@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text } from 'react-native';
-import fonts from '../../../../assets/fonts';
 import { styles } from './style';
 
 interface Props {

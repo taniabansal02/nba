@@ -24,7 +24,8 @@
 		E2FA8957C8C743DE90AA36C3 /* MerriweatherSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92D051A642A54C908F6199D1 /* MerriweatherSans-Medium.ttf */; };
 		0BAA5CCC94AF4839B248FC85 /* MerriweatherSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA39AC3B844A47AABC0DD5B8 /* MerriweatherSans-Regular.ttf */; };
 		EBFE16FFE5124CC49C1BA2BB /* MerriweatherSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 563B7CB0352C482D8DF1BCC2 /* MerriweatherSans-SemiBold.ttf */; };
-		F9B2C0499DB74341A03A9763 /* index.tsx in Resources */ = {isa = PBXBuildFile; fileRef = AAAB2B63AD764D4D8A4754E5 /* index.tsx */; };
+		283F0FEC7E9447F786E67ECF /* MerriweatherSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8589F14C1D094AA8B38563DE /* MerriweatherSans-ExtraBoldItalic.ttf */; };
+		4CF0E1FB1B4249A098E34220 /* index.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFC5A2AE36405B9FC3E14D /* index.tsx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +66,8 @@
 		92D051A642A54C908F6199D1 /* MerriweatherSans-Medium.ttf */ = {isa = PBXFileReference; name = "MerriweatherSans-Medium.ttf"; path = "../src/assets/fonts/MerriweatherSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		AA39AC3B844A47AABC0DD5B8 /* MerriweatherSans-Regular.ttf */ = {isa = PBXFileReference; name = "MerriweatherSans-Regular.ttf"; path = "../src/assets/fonts/MerriweatherSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		563B7CB0352C482D8DF1BCC2 /* MerriweatherSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "MerriweatherSans-SemiBold.ttf"; path = "../src/assets/fonts/MerriweatherSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AAAB2B63AD764D4D8A4754E5 /* index.tsx */ = {isa = PBXFileReference; name = "index.tsx"; path = "../src/assets/fonts/index.tsx"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8589F14C1D094AA8B38563DE /* MerriweatherSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "MerriweatherSans-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/MerriweatherSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5DBFC5A2AE36405B9FC3E14D /* index.tsx */ = {isa = PBXFileReference; name = "index.tsx"; path = "../src/assets/fonts/index.tsx"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +186,8 @@
 				92D051A642A54C908F6199D1 /* MerriweatherSans-Medium.ttf */,
 				AA39AC3B844A47AABC0DD5B8 /* MerriweatherSans-Regular.ttf */,
 				563B7CB0352C482D8DF1BCC2 /* MerriweatherSans-SemiBold.ttf */,
-				AAAB2B63AD764D4D8A4754E5 /* index.tsx */,
+				8589F14C1D094AA8B38563DE /* MerriweatherSans-ExtraBoldItalic.ttf */,
+				5DBFC5A2AE36405B9FC3E14D /* index.tsx */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -296,7 +299,8 @@
 				E2FA8957C8C743DE90AA36C3 /* MerriweatherSans-Medium.ttf in Resources */,
 				0BAA5CCC94AF4839B248FC85 /* MerriweatherSans-Regular.ttf in Resources */,
 				EBFE16FFE5124CC49C1BA2BB /* MerriweatherSans-SemiBold.ttf in Resources */,
-				F9B2C0499DB74341A03A9763 /* index.tsx in Resources */,
+				283F0FEC7E9447F786E67ECF /* MerriweatherSans-ExtraBoldItalic.ttf in Resources */,
+				4CF0E1FB1B4249A098E34220 /* index.tsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

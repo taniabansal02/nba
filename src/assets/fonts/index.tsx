@@ -9,6 +9,7 @@ const fonts = {
    MerriSemiBold : 'MerriweatherSans-SemiBold',
    MerriBold : 'MerriweatherSans-Bold',
    MerriExtraBold : 'MerriweatherSans-ExtraBold',
+   MerriExtraBoldItalic : 'MerriweatherSans-ExtraBoldItalic'
 };
 
 export default fonts;

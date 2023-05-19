@@ -5,20 +5,16 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
-  ActivityIndicator,
   TextInput,
 } from 'react-native';
 import { styles } from './style';
 import pngIcon from '../../../../assets/icons';
 import {useQuery} from 'react-query';
 import axios from 'axios';
-import fonts from '../../../../assets/fonts';
 import { Strings } from '../../../../strings';
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
 import { colors } from '../../../../assets/theme/colors';
-
-
 
 
 const TeamsData = () => {
@@ -51,7 +47,7 @@ const onHandle= (item) => {
   if (isLoading){
     return(
       <View> 
-        <Text style={styles.text}>Loading ...</Text>
+        <Text style={styles.text}>{Strings.common.loading}</Text>
       </View>
     )}
   if (error) {
