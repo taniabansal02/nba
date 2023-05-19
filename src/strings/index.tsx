@@ -39,6 +39,9 @@ export const Strings = {
    },
    player: {
       search : 'Enter player name',
+      playerId : 'Player ID',
+      team : 'Team',
+      position : 'Position',
       
    },
    bottomTab : {
@@ -60,7 +63,15 @@ export const Strings = {
       listOfTeams : 'List of all Teams',
       listOfPlayers : 'List Of Players',
       search: 'Enter team name',
-      symbol: '#'
+      symbol: '#',
+      teamName : 'Team Name',
+      teamId : 'Team ID',
+      
+      division : 'Division',
+      city : 'City',
+      conference : 'Conference',
+      teamAbb : 'Team Abb'
+
    },
    games  : {
       search :'Enter game name',

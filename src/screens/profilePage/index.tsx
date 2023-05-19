@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text,  Image} from 'react-native';
 import pngIcon from '../../assets/icons';
 import {useNavigation} from '@react-navigation/native';
 import {ScreenNameKeys} from '../../utils/constants/screenKey';
@@ -42,14 +42,14 @@ const ProfilePage = (prop) => {
 
         <Text style={styles.heading}>{Strings.common.heading} </Text>
 
-        <ProfileCard title="Player ID" Flex={0.79} val={item.id} />
-        <ProfileCard title="Team" Flex={0.73} val={item.team.full_name} />
-        <ProfileCard title="Team ID" Flex={0.77} val={item.team.id} />
-        <ProfileCard title="Position" Flex={0.77} val={item?.position ? item.position : '-'} />
-        <ProfileCard title="Division" Flex={0.77} val={item.team.division} />
-        <ProfileCard title="City" Flex={0.7} val={item.team.city} />
-        <ProfileCard title="Conference" Flex={0.85} val={item.team.conference} />
-        <ProfileCard title="Team Abb" Flex={0.81} val={item.team.abbreviation} />
+        <ProfileCard title={Strings.player.playerId} Flex={0.79} val={item.id} />
+        <ProfileCard title={Strings.player.team} Flex={0.73} val={item.team.full_name} />
+        <ProfileCard title={Strings.teams.teamId} Flex={0.77} val={item.team.id} />
+        <ProfileCard title={Strings.player.position} Flex={0.77} val={item?.position ? item.position : '-'} />
+        <ProfileCard title={Strings.teams.division} Flex={0.77} val={item.team.division} />
+        <ProfileCard title={Strings.teams.division} Flex={0.77} val={item.team.city} />
+        <ProfileCard title={Strings.teams.conference} Flex={0.85} val={item.team.conference} />
+        <ProfileCard title={Strings.teams.teamAbb} Flex={0.81} val={item.team.abbreviation} />
 
       </View>
     </View>

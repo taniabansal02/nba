@@ -6,7 +6,6 @@ import {ScreenNameKeys} from '../../utils/constants/screenKey';
 import images from '../../assets/images';
 import {styles} from './style';
 import ProfileCard from '../../components/ProfileCard';
-
 import Header from '../../components/header';
 import { Strings } from '../../strings';
 
@@ -40,12 +39,12 @@ const TeamProfilePage = (prop) => {
 
         <Text style={styles.heading}> {Strings.common.heading}</Text>
 
-        <ProfileCard title="Team Name" Flex={0.7} val={item.full_name}/>
-        <ProfileCard title="Team ID" Flex={0.62} val={item.id}/>
-        <ProfileCard title="Division" Flex={0.62} val={item.division} />
-        <ProfileCard title="City" Flex={0.57} val={item.city}/>
-        <ProfileCard title="Conference" Flex={0.69} val={item.conference}/>
-        <ProfileCard title="Team Abb" Flex={0.66} val={item.abbreviation} />
+        <ProfileCard title={Strings.teams.teamName} Flex={0.7} val={item.full_name}/>
+        <ProfileCard title={Strings.teams.teamId} Flex={0.62} val={item.id}/>
+        <ProfileCard title={Strings.teams.division} Flex={0.62} val={item.division} />
+        <ProfileCard title={Strings.teams.city} Flex={0.57} val={item.city}/>
+        <ProfileCard title={Strings.teams.conference} Flex={0.69} val={item.conference}/>
+        <ProfileCard title={Strings.teams.teamAbb} Flex={0.66} val={item.abbreviation} />
 
        
 
