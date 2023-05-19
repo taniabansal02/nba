@@ -4,8 +4,10 @@ import pngIcon from '../../assets/icons';
 import {useNavigation} from '@react-navigation/native';
 import {ScreenNameKeys} from '../../utils/constants/screenKey';
 import images from '../../assets/images';
-import ProfileCard from './components/profileCard';
+import ProfileCard from '../../components/ProfileCard';
 import {styles} from './style';
+import Header from '../../components/header';
+import { Strings } from '../../strings';
 
 const ProfilePage = (prop) => {
   const item = prop.route.params;
@@ -17,12 +19,9 @@ const ProfilePage = (prop) => {
 
   return (
     <View style={styles.mainView}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => onHandle()}>
-          <Image source={pngIcon.backArrow} style={styles.arrow} />
-        </TouchableOpacity>
-      </View>
 
+      <Header img={pngIcon.backArrow} title={item?.first_name + ' ' +   item.last_name}  fun={() => onHandle()}/>
+      
       <View style={styles.profileView}>
         <View style={styles.imgView}>
           <Image source={images.common} style={styles.img} />
@@ -41,15 +40,15 @@ const ProfilePage = (prop) => {
           <Text style={styles.cityTxt}>{item.team.city}</Text>
         </View>
 
-        <Text style={styles.heading}> PERSONAL INFORMATION </Text>
+        <Text style={styles.heading}>{Strings.common.heading} </Text>
 
         <ProfileCard title="Player ID" Flex={0.79} val={item.id} />
-        <ProfileCard title="Team" Flex={0.7} val={item.team.full_name} />
-        <ProfileCard title="Team ID" Flex={0.76} val={item.team.id} />
-        <ProfileCard title="Position" Flex={0.76} val={item?.position ? item.position : '-'} />
-        <ProfileCard title="Division" Flex={0.76} val={item.team.division} />
-        <ProfileCard title="City" Flex={0.66} val={item.team.city} />
-        <ProfileCard title="Conference" Flex={0.86} val={item.team.conference} />
+        <ProfileCard title="Team" Flex={0.73} val={item.team.full_name} />
+        <ProfileCard title="Team ID" Flex={0.77} val={item.team.id} />
+        <ProfileCard title="Position" Flex={0.77} val={item?.position ? item.position : '-'} />
+        <ProfileCard title="Division" Flex={0.77} val={item.team.division} />
+        <ProfileCard title="City" Flex={0.7} val={item.team.city} />
+        <ProfileCard title="Conference" Flex={0.85} val={item.team.conference} />
         <ProfileCard title="Team Abb" Flex={0.81} val={item.team.abbreviation} />
 
       </View>

@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   FlatList,
+  ActivityIndicator
 } from 'react-native';
 import {styles} from './style';
 import pngIcon from '../../../../assets/icons';
@@ -15,6 +16,7 @@ import {Strings} from '../../../../strings';
 import {useNavigation} from '@react-navigation/native';
 import {ScreenNameKeys} from '../../../../utils/constants/screenKey';
 import {colors} from '../../../../assets/theme/colors';
+import { API_KEY, BASE_URL, GAMES, HOST_URL } from '../../../../services/endpoints';
 
 const GamesData = () => {
   const [searchText, setSearchText] = useState('');
@@ -38,18 +40,18 @@ const GamesData = () => {
     /* ******************* Games API ********************* */
   }
   const {isLoading, error, data} = useQuery('Games', async () => {
-    const res = await axios.get('https://free-nba.p.rapidapi.com/games', {
+    const res = await axios.get(BASE_URL+GAMES , {
       headers: {
-        'X-RapidAPI-Key': 'b92d35722emshdb1f96ecbf0e730p1497f4jsn124949e0a308',
-        'X-RapidAPI-Host': 'free-nba.p.rapidapi.com',
+        'X-RapidAPI-Key': API_KEY,
+        'X-RapidAPI-Host': HOST_URL,
       },
     });
     return res.data.data;
   });
   if (isLoading) {
     return (
-      <View>
-        <Text style={styles.text}>{Strings.common.loading}</Text>
+      <View style={styles.activityIndicator}>
+        <ActivityIndicator size={'large'}/>
       </View>
     );
   }
@@ -73,8 +75,7 @@ const GamesData = () => {
         <View style={styles.mainview}>
           <Text style={styles.heading}>
             {' '}
-            {item?.home_team?.conference ? item.home_team.conference : null} -
-            Config. {item.status}
+            {item?.home_team?.conference ? item.home_team.conference : null}{Strings.games.config}{item.status}
           </Text>
 
           <View style={styles.container}>
@@ -150,7 +151,7 @@ const GamesData = () => {
       <View style={styles.searchBar}>
         <Image source={pngIcon.search} style={styles.searchIcon} />
         <TextInput
-          placeholder="Search"
+          placeholder= {Strings.games.search}
           placeholderTextColor={colors.black}
           style={styles.input}
           clearButtonMode="always"

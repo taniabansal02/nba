@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,50 +6,54 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  ActivityIndicator
 } from 'react-native';
 import { styles } from './style';
 import pngIcon from '../../../../assets/icons';
-import {useQuery} from 'react-query';
+import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Strings } from '../../../../strings';
 import { useNavigation } from "@react-navigation/native";
 import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
 import { colors } from '../../../../assets/theme/colors';
+import { API_KEY, BASE_URL, HOST_URL, TEAMS } from '../../../../services/endpoints';
 
 
 const TeamsData = () => {
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState('');
 
-  {/* ******************* Random colors ********************* */}
+  {/* ******************* Random colors ********************* */ }
   const generateColor = () => {
     const randomColor = Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, '0');
+      .toString(16)
+      .padStart(6, '0');
     return `#${randomColor}`;
-};
+  };
 
-const onHandle= (item) => {
-  navigation.navigate(ScreenNameKeys.TeamProfilePage, item);
-}
-
-  {/* ******************* Teams API ********************* */}
-  const {isLoading, error, data} = useQuery('Teams', async () => {
-    const res = await axios.get('https://free-nba.p.rapidapi.com/teams', {
-      params: {page: '0'},
-  headers: {
-    'X-RapidAPI-Key': 'b92d35722emshdb1f96ecbf0e730p1497f4jsn124949e0a308',
-    'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
+  const onHandle = (item) => {
+    navigation.navigate(ScreenNameKeys.TeamProfilePage, item);
   }
+
+  {/* ******************* Teams API ********************* */ }
+  // `${BASE_URL+MOVIES}
+  const { isLoading, error, data } = useQuery('Teams', async () => {
+    const res = await axios.get( BASE_URL+TEAMS , {
+      params: { page: '0' },
+      headers: {
+        'X-RapidAPI-Key': API_KEY,
+        'X-RapidAPI-Host': HOST_URL,
+      }
     });
     return res.data.data;
   });
-  if (isLoading){
-    return(
-      <View> 
-        <Text style={styles.text}>{Strings.common.loading}</Text>
+  if (isLoading) {
+    return (
+      <View style={styles.activityIndicator}>
+        <ActivityIndicator size={'large'}/>
       </View>
-    )}
+    )
+  }
   if (error) {
     return (
       <View>
@@ -58,56 +62,45 @@ const onHandle= (item) => {
     );
   }
 
-  {/* ******************* Get Teams Data ********************* */}
-  const getTeams = ({item}) => {
+  {/* ******************* Get Teams Data ********************* */ }
+  const getTeams = ({ item }) => {
     return (
       <TouchableOpacity onPress={() => onHandle(item)}>
-      <View
-        style={styles.playerView}>
+        <View style={styles.teamView}>
 
-        {/* ******************* Icons ********************* */}
-        <View
-          style={[styles.playerIcons, {backgroundColor: generateColor()}]}>
-          <Text style={styles.text}> {item?.city[0] ? item.city[0] : null }{ item?.name[0] ? item.name[0] : null} </Text>
-        </View>
-
-        {/* ******************* Team Details ********************* */}
-       
-        <View style={styles.playerDetails}>
-          <View style={styles.playerRow}>
-            <Text
-              style={styles.playerName}>
-              {item?.full_name ? item.full_name : null}
-            </Text>
+          {/* ******************* Icons ********************* */}
+          <View style={[styles.teamIcons, { backgroundColor: generateColor() }]}>
+            <Text style={styles.text}> {item?.city[0] ? item.city[0] : null}{item?.name[0] ? item.name[0] : null} </Text>
           </View>
 
-          <View style={styles.playerRow}>
-            <Text
-              style={styles.playerid}>
-              {item?.abbreviation ? item.abbreviation : null} |{' '}
-            </Text>
-            <Text
-              style={styles.playerid}>
-              #{item?.id ? item.id : null} | {' '}
-            </Text>
-            <Text style={styles.playerid}>{item?.division ? item.division : null}</Text>
+          {/* ******************* Team Details ********************* */}
+
+          <View style={styles.teamDetails}>
+            <View style={styles.teamRow}>
+              <Text style={styles.teamName}>{item?.full_name ? item.full_name : null}</Text>
+            </View>
+
+            <View style={styles.teamRow}>
+              <Text style={styles.teamid}>{item?.abbreviation ? item.abbreviation : null} |{' '} </Text>
+              <Text style={styles.teamid}>{Strings.teams.symbol}{item?.id ? item.id : null} | {' '} </Text>
+              <Text style={styles.teamid}>{item?.division ? item.division : null}</Text>
+            </View>
+          </View>
+
+
+
+          {/* ******************* Add Button ********************* */}
+          <View
+            style={styles.buttonView}>
+            <TouchableOpacity
+              style={styles.btn}>
+              <Text
+                style={styles.btnTxt}>
+                {Strings.common.follow}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
-
-
-
-        {/* ******************* Add Button ********************* */}
-        <View
-          style={styles.buttonView}>
-          <TouchableOpacity
-            style={styles.btn}>
-            <Text
-              style={styles.btnTxt}>
-              {Strings.common.follow}
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
       </TouchableOpacity>
     );
   };
@@ -117,7 +110,7 @@ const onHandle= (item) => {
 
   const filteredData = data.filter((i) => {
     return (
-      i?.full_name?.toLowerCase().match(searchText.toLowerCase()) 
+      i?.full_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
 
@@ -128,7 +121,7 @@ const onHandle= (item) => {
       <View style={styles.searchBar}>
         <Image source={pngIcon.search} style={styles.searchIcon} />
         <TextInput
-          placeholder="Search"
+          placeholder={Strings.teams.search}
           placeholderTextColor={colors.black}
           style={styles.input}
           clearButtonMode="always"
@@ -137,7 +130,7 @@ const onHandle= (item) => {
           onChangeText={text => setSearchText(text)}
         />
       </View>
-      
+
 
       <FlatList
         data={filteredData}
@@ -145,7 +138,7 @@ const onHandle= (item) => {
         style={styles.list}
       />
 
-  
+
     </View>
   );
 };

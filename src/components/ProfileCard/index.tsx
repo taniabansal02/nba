@@ -12,7 +12,7 @@ interface Props {
     
 }
 
-const GamesProfileCard = ({title, Flex, val, txt, name, season} : Props) => {
+const ProfileCard = ({title, Flex, val, txt, name, season} : Props) => {
     return(
         <View style={styles.cardView}>
             <View style={styles.cardRow}>
@@ -25,4 +25,4 @@ const GamesProfileCard = ({title, Flex, val, txt, name, season} : Props) => {
     )
 }
 
-export default GamesProfileCard;
+export default ProfileCard;

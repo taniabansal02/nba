@@ -28,21 +28,21 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
   },
 
-  playerView: {
+  teamView: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 1,
     backgroundColor: colors.white,
     height: 70,
   },
-  playerDetails: {
+  teamDetails: {
     flexDirection: 'column',
     marginLeft: 20,
   },
   playerRow: {
     flexDirection: 'row',
   },
-  playerName: {
+  teamName: {
     color: colors.black,
     fontFamily: fonts.MerriMedium,
     fontSize: 18,

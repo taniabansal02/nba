@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import fonts from '../../../../assets/fonts';
-
+import fonts from '../../assets/fonts';
 export const styles = StyleSheet.create({
    cardView: {
     backgroundColor:'#ffffff', 

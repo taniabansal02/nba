@@ -6,9 +6,9 @@ import Swiper from 'react-native-swiper';
 import TopPlayerData from './components/TopPlayers';
 import SwiperDetails from './components/SwiperDetails';
 import Header from '../../components/header';
-import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../assets/theme/colors';
 import fonts from '../../assets/fonts';
+import { Strings } from '../../strings';
 
 const Home = () => {
 
@@ -23,52 +23,48 @@ const Home = () => {
   ];
 
   return (
-    
-  
-      // <LinearGradient colors={['#dbdbdb'] } style={styles.linearGradient}>
-   <ScrollView style={{flex:1, backgroundColor:'#F4F4F4'}}>
-      <Header title='Dashboard' />
+   <ScrollView style={styles.mainview}>
 
-      
+      <Header title='Dashboard' />
 
       {/* ******************* Render Top Player Data ********************* */}
       <TopPlayerData />
 
-     <Text style={{color:colors.black, marginTop: 17, marginBottom:5, fontFamily: fonts.lato, marginLeft:10, fontSize:18}}> TRENDING MATCHES</Text>
+     <Text style={styles.heading}>{Strings.home.trending}</Text>
 
       {/* ******************* Upcomming Matches ********************* */}
-      <Swiper autoplay paginationStyle={{ position: 'absolute', bottom: 300 }} dot={<View style={{ backgroundColor: '#4b4b4b', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>} activeDot={<View style={{ backgroundColor: '#ffff', width: 7, height: 7, borderRadius: 4, marginLeft: 4 }}></View>}>
+      <Swiper autoplay paginationStyle={{ position: 'absolute', bottom: 300 }} dot={<View style={styles.inactiveDot}></View>} activeDot={<View style={styles.activeDot}></View>}>
 
         {/* ****** Swiper Slider 1 ****** */}
 
         <SwiperDetails
           slider1img={matches[0].img}
-          heading='West - Conf. Semifinals'
-          subheading='Game 4'
+          heading= {Strings.swiper1Details.swiperImg1Title}
+          subheading= {Strings.swiper1Details.subHead}
           team1logo={images.warrior}
-          team1name='Warriors'
-          score1='101'
-          status='Final'
-          score2='104'
+          team1name={Strings.swiper1Details.team1name}
+          score1={Strings.swiper1Details.team1score}
+          status= {Strings.swiper1Details.status}
+          score2={Strings.swiper1Details.team2score}
           team2logo={images.laker}
-          team2name='Lakers'
-          txt='LAL leads 3-1'
+          team2name={Strings.swiper1Details.team2name}
+          txt= {Strings.swiper1Details.label}
         />
 
         {/* ****** Swiper Slider 2 ****** */}
 
         <SwiperDetails
           slider1img={matches[1].img}
-          heading='East - Conf. Semifinals'
-          subheading='Game 4'
+          heading= {Strings.swiper2Details.swiperImg1Title}
+          subheading= {Strings.swiper2Details.subHead}
           team1logo={images.knicksLogo}
-          team1name='Knicks'
-          score1='101'
-          status='Final'
-          score2='109'
+          team1name={Strings.swiper2Details.team1name}
+          score1={Strings.swiper2Details.team1score}
+          status= {Strings.swiper2Details.status}
+          score2={Strings.swiper2Details.team2score}
           team2logo={images.heatLogo}
-          team2name='Heat'
-          txt='MIA leads 3-1'
+          team2name={Strings.swiper2Details.team2name}
+          txt= {Strings.swiper2Details.label}
         />
       </Swiper>
       </ScrollView>

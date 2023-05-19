@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
       },
      text:{
-        color:colors.white,
+        color:colors.black,
       }, 
       playerView: {
         flexDirection: 'row',
@@ -83,6 +83,10 @@ export const styles = StyleSheet.create({
         color: colors.white, 
         fontFamily: fonts.lato, 
         fontSize: 16
+      },
+      activityIndicator : {
+        marginTop:20
       }
+
 
 });

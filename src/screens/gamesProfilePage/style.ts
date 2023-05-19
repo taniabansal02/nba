@@ -12,6 +12,15 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  headerView:{
+    flexDirection:'row', 
+    marginLeft:20
+  },
+  headerTxt:{
+    color:'white', 
+    fontFamily:fonts.MerriBold, 
+    fontSize:20
+  },
   arrow: {
     marginLeft: 15,
     alignItems: 'center',

@@ -1,39 +1,32 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../assets/theme/colors';
+import fonts from '../../assets/fonts';
 
 export const styles = StyleSheet.create({
-    linearGradient: {
-        flex: 1,
-       
-       
-      },
-    // body: {
-    //     flex: 1,
-    //     backgroundColor: '#ECECF9',
-    // },
-    banner: {
-        width: "100%",
-        height: 100,
-        resizeMode: 'cover',
-        margin: 0
+    mainview: { 
+        flex: 1, 
+        backgroundColor: '#F4F4F4' 
     },
-    // horizontalLine: {
-    //     borderBottomColor: '#2f2f2f',
-    //     borderWidth: 1,
-    //     marginTop: -6,
-    // },
-    
-    swiperImg1: {
-        resizeMode: 'cover',
-        width: '100%'
+    heading: { 
+        color: colors.black, 
+        marginTop: 17, 
+        marginBottom: 5, 
+        fontFamily: fonts.lato,
+         marginLeft: 10, 
+         fontSize: 18 
+        },
+    activeDot: { 
+        backgroundColor: '#ffff', 
+        width: 7, 
+        height: 7, 
+        borderRadius: 4, 
+        marginLeft: 4 
     },
-    swiperImg2: {
-        resizeMode: 'cover',
-        width: '100%',
-        height: 381
-    }
-
-
-
-
+    inactiveDot: { 
+        backgroundColor: '#4b4b4b', 
+        width: 7, 
+        height: 7, 
+        borderRadius: 4,
+         marginLeft: 4 
+        },
 })

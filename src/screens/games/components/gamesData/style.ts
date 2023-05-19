@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    color: '#ffffff',
+    color: colors.black,
   },
   gameName: {
     color: colors.black,
@@ -95,4 +95,7 @@ export const styles = StyleSheet.create({
   list: {
     marginTop: 20,
   },
+  activityIndicator : {
+    marginTop:20
+  }
 });

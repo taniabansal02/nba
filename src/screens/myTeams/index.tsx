@@ -47,12 +47,12 @@ const MyTeams = () => {
     const renderItem = ({ item, index }) => {
         return (
             <TouchableOpacity onPress={() => itemclik(item)}>
-                <View style={styles.playerView}>
+                <View style={styles.teamView}>
 
                     {/* ******************* My team Details ********************* */}
-                    <View style={styles.playerDetails}>
+                    <View style={styles.teamDetails}>
                         <View style={styles.playerRow}>
-                            <Text style={styles.playerName}> {item} </Text>
+                            <Text style={styles.teamName}> {item} </Text>
                         </View>
                     </View>
                     {/* ******************* Add Button ********************* */}
@@ -74,7 +74,7 @@ const MyTeams = () => {
             <View style={styles.teamRow}>
                 <View style={styles.inputView}>
                     <TextInput
-                        placeholder='Enter team name'
+                        placeholder= {Strings.teams.search}
                         placeholderTextColor={colors.black}
                         style={styles.input}
                         clearButtonMode="always"

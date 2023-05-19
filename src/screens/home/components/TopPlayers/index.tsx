@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList, Image} from 'react-native';
 import images from '../../../../assets/images';
-import { colors } from '../../../../assets/theme/colors';
+import { styles } from './style';
 
 const TopPlayerData = () => {
   /* Top Players Data  */
@@ -40,30 +40,13 @@ const TopPlayerData = () => {
   const renderTopPlayers = ({item}) => {
     return (
       <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          marginTop: 10,
-          marginLeft: 11,
-          height: 120,
-        }}>
+        style={styles.mainview}>
         <Image
-          style={{
-            height: 90,
-            width: 90,
-            borderRadius: 50,
-            borderWidth: 2,
-            borderColor: '#a32132',
-          }}
+          style={styles.img}
           source={item.image}
         />
         <Text
-          style={{
-            marginTop: 5,
-            justifyContent: 'center',
-            color: colors.black,
-            marginBottom: 20,
-          }}>
+          style={styles.playerName}>
           {item.name}
         </Text>
       </View>

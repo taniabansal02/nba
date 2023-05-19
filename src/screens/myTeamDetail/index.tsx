@@ -35,24 +35,24 @@ const MyTeamDetail = (params) => {
 
      const renderItem = (item) => {
         return(
-            <View style={styles.playerView}>
+            <View style={styles.teamView}>
 
           {/* ******************* Icons ********************* */}
            <View
-            style={[styles.playerIcons, { backgroundColor: generateColor() }]}>
+            style={[styles.teamIcons, { backgroundColor: generateColor() }]}>
             <Text style={styles.text}> {item?.item.first_name[0] ? item.item.first_name[0] : null}{item?.item.last_name[0] ? item.item.last_name[0] : null} </Text>
           </View>
 
           {/* ******************* Team Details ********************* */}
-          <View style={styles.playerDetails}>
-            <View style={styles.playerRow}>
-              <Text style={styles.playerName}>{item?.item?.first_name ? item?.item?.first_name : null}{' '}</Text>
-              <Text style={styles.playerName}>{item?.item?.last_name ? item?.item?.last_name : null}</Text>
+          <View style={styles.teamDetails}>
+            <View style={styles.teamRow}>
+              <Text style={styles.teamName}>{item?.item?.first_name ? item?.item?.first_name : null}{' '}</Text>
+              <Text style={styles.teamName}>{item?.item?.last_name ? item?.item?.last_name : null}</Text>
             </View>
 
-            <View style={styles.playerRow}>
-              <Text style={styles.playerid}> #{item?.item?.id ? item?.item?.id : null} |{' '} </Text>
-              <Text style={styles.playerid}> {item?.item?.position ? item?.item?.position : null} </Text>
+            <View style={styles.teamRow}>
+              <Text style={styles.teamid}> {Strings.teams.symbol}{item?.item?.id ? item?.item?.id : null} |{' '} </Text>
+              <Text style={styles.teamid}> {item?.item?.position ? item?.item?.position : null} </Text>
             </View>
           </View> 
             </View>

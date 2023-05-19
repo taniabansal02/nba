@@ -12,14 +12,14 @@ export const styles = StyleSheet.create({
     fontSize: 20, 
     marginBottom: 15 
   },
-      playerView: {
+      teamView: {
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 1,
         backgroundColor: colors.white,
         height: 70,
       },
-      playerIcons:{
+      teamIcons:{
         alignItems: 'center',
         justifyContent: 'center',
         height: 50,
@@ -27,19 +27,19 @@ export const styles = StyleSheet.create({
         borderRadius: 50,
         marginLeft: 20,
       },
-      playerDetails : {
+      teamDetails : {
         flexDirection:'column',
         marginLeft: 20
       },
-      playerRow:{
+      teamRow:{
         flexDirection: 'row'
       },
-      playerName:{
+      teamName:{
         color: colors.black, 
         fontFamily: fonts.MerriMedium, 
         fontSize: 18
       },
-      playerid:{
+      teamid:{
         color: '#83868d', 
         fontFamily: fonts.lato, 
         fontSize: 17
