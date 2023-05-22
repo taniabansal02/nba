@@ -34,6 +34,10 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
   }
 
   const addfav = async (item) => {
+    if(teamname==undefined)
+    {
+      teamname = '';
+    }
     const allplayer = await AsyncStorage.getItem(teamname);
     const setplayer = allplayer ? JSON.parse(allplayer) : [];
     const final = [...setplayer, item];
@@ -47,7 +51,7 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
     const settteam = allteam ? JSON.parse(allteam) : [];
     const finalteam = [...settteam, teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
-    navigation.navigate('MyTeams');
+    navigation.navigate(ScreenNameKeys.MyTeams);
     setIsData(false);
   }
 

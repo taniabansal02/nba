@@ -26,9 +26,9 @@ const GamesProfilePage = (prop) => {
           </TouchableOpacity>
 
           <View style={styles.headerView}>
-            <Text style={styles.headerTxt}>{item.home_team.abbreviation}</Text>
+            <Text style={styles.headerTxt}>{item?.home_team?.abbreviation ? item.home_team.abbreviation : null}</Text>
             <Text style={styles.headerTxt}>  {Strings.games.headerText} </Text>
-            <Text style={styles.headerTxt}>{item.visitor_team.abbreviation}</Text>
+            <Text style={styles.headerTxt}>{item?.visitor_team?.abbreviation ? item.visitor_team.abbreviation : null}</Text>
           </View>
 
         </View>
@@ -38,17 +38,17 @@ const GamesProfilePage = (prop) => {
             <Image source={images.match} style={styles.img} />
           </View>
           <Text style={styles.heading}> {Strings.games.info} </Text>
-          <ProfileCard title={Strings.games.match} Flex={0.82} val={item.period} />
+          <ProfileCard title={Strings.games.match} Flex={0.82} val={item?.period ? item.period : null} />
 
-          <ProfileCard title={Strings.games.series} Flex={0.81} val={item.home_team.city} txt={Strings.games.vs} name={item.visitor_team.city} season={item.season} />
+          <ProfileCard title={Strings.games.series} Flex={0.81} val={item?.home_team?.city ? item.home_team.city : null} txt={Strings.games.vs} name={item.visitor_team.city} season={item.season} />
 
-          <ProfileCard title={Strings.games.venue} Flex={0.82} val={item.home_team.city} />
+          <ProfileCard title={Strings.games.venue} Flex={0.82} val={item?.home_team?.city ? item.home_team.city : null} />
           <ProfileCard title={Strings.games.umpire} Flex={0.84} val={Strings.games.umpireName} />
           <ProfileCard title={Strings.games.referee} Flex={0.85} val={Strings.games.refereeName} />
 
           <Text style={styles.heading}> {Strings.games.guide} </Text>
           <ProfileCard title={Strings.games.stadium} Flex={0.87} val={Strings.games.stadiumName} />
-          <ProfileCard title={Strings.games.city} Flex={0.77} val={item.home_team.city} />
+          <ProfileCard title={Strings.games.city} Flex={0.77} val={item?.home_team?.city ? item.home_team.city : null} />
           <ProfileCard title={Strings.games.capacity} Flex={0.86} val={Strings.games.capacityQty} />
 
           <Text style={styles.heading}> {Strings.games.tvGuide} </Text>
