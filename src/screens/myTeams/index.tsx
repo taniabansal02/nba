@@ -13,10 +13,11 @@ const MyTeams = () => {
     const navigation = useNavigation();
     const [data, setdata] = useState('');
     const [teamname, setTeamname] = useState('');
+    const[isError, setIsError] = useState('');
 
-    const navigateToPlayers = () => {
-        navigation.navigate(ScreenNameKeys.Players, { teamname: teamname, showbttn: true });
-    }
+    // const navigateToPlayers = () => {
+    //     navigation.navigate(ScreenNameKeys.Players, { teamname: teamname, showbttn: true });
+    // }
 
     const navigateToHome = () => {
         navigation.navigate(ScreenNameKeys.Home)
@@ -26,8 +27,26 @@ const MyTeams = () => {
         const mylist = await AsyncStorage.getItem('currentTeams');
         const final = mylist ? JSON.parse(mylist) : []
         setdata(final);
-
     }
+
+   const validate = () => {
+    if(teamname.trim() === ''){
+        console.warn('Team name cannot be empty');
+        return null;
+    }
+    // else if(alreadyExist(teamname)){
+    //     setIsError('Team name should be unique');
+    //     return null;
+    // }
+    else{
+        navigation.navigate(ScreenNameKeys.Players, { teamname: teamname, showbttn: true });
+    }
+   }
+
+//    const alreadyExist = (newTeamName) => {
+//     return data.match(newTeamName);
+//    }
+
     const isfocused = useIsFocused();
     const itemclik = (item) => {
         navigation.navigate(ScreenNameKeys.MyTeamDetail, { item })
@@ -55,7 +74,8 @@ const MyTeams = () => {
                             <Text style={styles.teamName}> {item} </Text>
                         </View>
                     </View>
-                    {/* ******************* Add Button ********************* */}
+
+                    {/* ******************* Delete Data ********************* */}
                     <View style={styles.buttonView}>
                         <TouchableOpacity onPress={() => deleteTeam(index)} style={styles.btn}>
                             <Text style={styles.btnTxt}> {Strings.common.delete} </Text>
@@ -84,7 +104,7 @@ const MyTeams = () => {
                     />
                 </View>
 
-                <TouchableOpacity onPress={() => navigateToPlayers()} style={styles.btn}>
+                <TouchableOpacity onPress={() => validate()} style={styles.btn}>
                     <Text style={styles.btnTxt}>
                         {Strings.teams.addTeam}
                     </Text>

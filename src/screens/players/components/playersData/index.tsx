@@ -1,11 +1,11 @@
-import React, {useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity,  TextInput, Button } from 'react-native';
 import { styles } from './style';
 import pngIcon from '../../../../assets/icons';
 import { useQuery } from 'react-query';
 import axios, { all } from 'axios';
 import { Strings } from '../../../../strings';
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
 import { colors } from '../../../../assets/theme/colors';
@@ -18,9 +18,13 @@ interface Playerdata {
 const PlayersData = ({ teamname, showbttn }: Playerdata) => {
   
   const navigation = useNavigation();
+  const isFocus = useIsFocused();
   const [searchText, setSearchText] = useState('');
   const [isData, setIsData] = useState(false);
-
+  const [showbutton, setShowbutton] = useState(false);
+  console.log('showbttn',showbttn)
+  // if(showbttn!= undefined){setShowbutton(showbttn);}
+  
   {/* ******************* Random colors ********************* */ }
   const generateColor = () => {
     const randomColor = Math.floor(Math.random() * 16777215)
@@ -45,14 +49,17 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
     setIsData(true);
   }
 
+
   const addfavteamname = async () => {
-    
+
+  
     const allteam = await AsyncStorage.getItem('currentTeams');
     const settteam = allteam ? JSON.parse(allteam) : [];
     const finalteam = [...settteam, teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
     navigation.navigate(ScreenNameKeys.MyTeams);
     setIsData(false);
+    setShowbutton(false);
   }
 
   {/* ******************* Players API ********************* */ }
@@ -83,7 +90,6 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
       </View>
     );
   }
-
   {/* ******************* Render Players Data ********************* */ }
   const getPlayers = ({ item }) => {
     return (
@@ -142,7 +148,15 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
       i?.last_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
-
+  // useEffect(()=>{
+  //   console.log('isData->' , isData);
+  //   console.log('showbttn->' , showbttn);
+  // },[isFocus])
+if(isFocus)
+{
+  console.log('isData->' , isData);
+    console.log('showbttn->' , showbutton);
+}
   return (
     <View>
       {/* ******************* Search Bar ********************* */}
@@ -159,12 +173,9 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
         />
       </View>
       
-        
-
+      {showbutton && isData ?  
       
-      
-      {showbttn && isData ?  
-      <View style={{flex:1, backgroundColor:'red', alignItems:'center', justifyContent:'center', marginTop:30, marginBottom: 20}}>
+      <View style={styles.nextBtn}>
        <TouchableOpacity onPress={addfavteamname} style={styles.btn}>
        <Text style={styles.btnTxt}> {Strings.splash.next}</Text>
         </TouchableOpacity>

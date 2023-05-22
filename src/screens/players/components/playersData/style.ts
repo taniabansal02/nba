@@ -89,6 +89,13 @@ export const styles = StyleSheet.create({
       },
       iconText: {
         color: colors.white,
+      },
+      nextBtn : {
+        flex:1, 
+        alignItems:'center', 
+        justifyContent:'center', 
+        marginTop:30, 
+        marginBottom: 20
       }
 
 

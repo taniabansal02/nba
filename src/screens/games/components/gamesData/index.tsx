@@ -81,7 +81,7 @@ const GamesData = () => {
           <View style={styles.container}>
             <View style={styles.gameView}>
               <View style={[styles.icons, {backgroundColor: generateColor()}]}>
-                <Text style={styles.text}>
+                <Text style={styles.Icontext}>
                   {item?.home_team?.city[0] ? item.home_team.city[0] : null}
                   {item?.home_team?.name[0] ? item.home_team.name[0] : null}
                 </Text>
@@ -116,7 +116,7 @@ const GamesData = () => {
 
             <View style={styles.team2NameView}>
               <View style={[styles.icons, {backgroundColor: generateColor()}]}>
-                <Text style={styles.text}>
+                <Text style={styles.Icontext}>
                   {item?.visitor_team?.city[0]
                     ? item.visitor_team.city[0]
                     : null}
