@@ -17,14 +17,27 @@ const ProfilePage = (prop) => {
     navigation.navigate(ScreenNameKeys.Players);
   };
 
+  {/* ******************* Random colors ********************* */ }
+  const generateColor = () => {
+    const randomColor = Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, '0');
+    return `#${randomColor}`;
+  };
+
   return (
     <View style={styles.mainView}>
 
       <Header img={pngIcon.backArrow} title={item?.first_name + ' ' +   item.last_name}  fun={() => onHandle()}/>
       
       <View style={styles.profileView}>
+       <View style={styles.imgView}>
+          <View style={[styles.teamIcons, {backgroundColor: generateColor()}]}>
+            <Text style={styles.text}> {item?.first_name[0] ? item.first_name[0] : null}{item?.last_name[0] ? item.last_name[0] : null} </Text>
+          </View>
+        </View> 
         <View style={styles.imgView}>
-          <Image source={images.common} style={styles.img} />
+          {/* <Image source={images.common} style={styles.img} /> */}
 
           <View style={styles.textView}>
             <Text style={styles.titleTxt}>

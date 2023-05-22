@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import fonts from "../../assets/fonts";
-
+import { colors } from "../../assets/theme/colors";
 export const styles = StyleSheet.create({
     
     mainView : {
@@ -50,7 +50,21 @@ export const styles = StyleSheet.create({
           fontFamily: fonts.MerriMedium, 
           fontSize:21, 
           marginBottom:15
-        }
+        },
+        text: {
+          color: colors.white,
+          fontSize: 24,
+          fontFamily: fonts.MerriBold,
+        },
+        teamIcons:{
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: 100,
+          width: 100,
+          borderRadius: 50,
+          marginTop: 30,
+          
+        },
 
 
 });

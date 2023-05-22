@@ -15,10 +15,10 @@ const SplashDetail = () => {
 
   return (
     <SafeAreaView style={styles.mainview}>
-      <Animated.ScrollView entering={FadeIn.duration(500)}>
+      <Animated.ScrollView entering={FadeIn.duration(500)} style={styles.setting}>
         <Image
           source={images.splashphoto}
-          resizeMode="cover"
+          resizeMode="contain"
           style={styles.img}
         />
         <Text style={styles.txt}> {Strings.splash.hey}</Text>
