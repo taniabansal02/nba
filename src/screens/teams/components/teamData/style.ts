@@ -86,6 +86,9 @@ export const styles = StyleSheet.create({
       },
       activityIndicator : {
         marginTop:20
+      },
+      iconText : {
+        color : colors.white,
       }
 
 });

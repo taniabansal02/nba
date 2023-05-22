@@ -70,7 +70,7 @@ const TeamsData = () => {
 
           {/* ******************* Icons ********************* */}
           <View style={[styles.teamIcons, { backgroundColor: generateColor() }]}>
-            <Text style={styles.text}> {item?.city[0] ? item.city[0] : null}{item?.name[0] ? item.name[0] : null} </Text>
+            <Text style={styles.iconText}> {item?.city[0] ? item.city[0] : null}{item?.name[0] ? item.name[0] : null} </Text>
           </View>
 
           {/* ******************* Team Details ********************* */}

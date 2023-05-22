@@ -89,7 +89,7 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
           {/* ******************* Icons ********************* */}
           <View
             style={[styles.playerIcons, { backgroundColor: generateColor() }]}>
-            <Text style={styles.text}> {item?.first_name[0] ? item.first_name[0] : null}{item?.last_name[0] ? item.last_name[0] : null} </Text>
+            <Text style={styles.iconText}> {item?.first_name[0] ? item.first_name[0] : null}{item?.last_name[0] ? item.last_name[0] : null} </Text>
           </View>
 
           {/* ******************* Player Details ********************* */}
