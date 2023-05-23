@@ -20,9 +20,9 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
   const navigation = useNavigation();
   const isFocus = useIsFocused();
   const [searchText, setSearchText] = useState('');
-  const [isData, setIsData] = useState(false);
-  const [showbutton, setShowbutton] = useState(false);
-  console.log('showbttn',showbttn)
+  // const [isData, setIsData] = useState(false);
+  // const [showbutton, setShowbutton] = useState(false);
+  // console.log('showbttn',showbttn)
   // if(showbttn!= undefined){setShowbutton(showbttn);}
   
   {/* ******************* Random colors ********************* */ }
@@ -46,7 +46,7 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
     const setplayer = allplayer ? JSON.parse(allplayer) : [];
     const final = [...setplayer, item];
     await AsyncStorage.setItem(teamname, JSON.stringify(final));
-    setIsData(true);
+    // setIsData(true);
   }
 
 
@@ -58,8 +58,10 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
     const finalteam = [...settteam, teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
     navigation.navigate(ScreenNameKeys.MyTeams);
-    setIsData(false);
-    setShowbutton(false);
+    // setIsData(false);
+    // showbttn == false;
+    
+    
   }
 
   {/* ******************* Players API ********************* */ }
@@ -128,12 +130,15 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
           </View>
 
           {/* ******************* Add Button ********************* */}
+          {/* {showbttn ?   */}
           <View
             style={styles.buttonView}>
             <TouchableOpacity onPress={() => addfav(item)} style={styles.btn}>
               <Text style={styles.btnTxt}>{Strings.common.add}</Text>
             </TouchableOpacity>
-          </View>
+          </View> 
+          {/* : null
+           } */}
         </View>
 
       </TouchableOpacity>
@@ -148,15 +153,14 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
       i?.last_name?.toLowerCase().match(searchText.toLowerCase())
     );
   });
-  // useEffect(()=>{
-  //   console.log('isData->' , isData);
-  //   console.log('showbttn->' , showbttn);
-  // },[isFocus])
-if(isFocus)
-{
-  console.log('isData->' , isData);
-    console.log('showbttn->' , showbutton);
-}
+ 
+
+// if(isFocus)
+// {
+//   console.log('isData->' , isData);
+//     console.log('showbttn->' , showbttn);
+// }
+
   return (
     <View>
       {/* ******************* Search Bar ********************* */}
@@ -173,16 +177,16 @@ if(isFocus)
         />
       </View>
       
-      {showbutton && isData ?  
+      {/* {showbttn && isData ?   */}
       
       <View style={styles.nextBtn}>
        <TouchableOpacity onPress={addfavteamname} style={styles.btn}>
        <Text style={styles.btnTxt}> {Strings.splash.next}</Text>
         </TouchableOpacity>
         </View>
-       : null
-      // <Button title='done' onPress={addfavteamname} /> : null
-    }
+       {/* : null */}
+      {/* // <Button title='done' onPress={addfavteamname} /> : null */}
+    {/* } */}
 
       <FlatList
         data={filteredData}
