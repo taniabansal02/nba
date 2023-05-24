@@ -57,7 +57,7 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
     const settteam = allteam ? JSON.parse(allteam) : [];
     const finalteam = [...settteam, teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
-    navigation.navigate(ScreenNameKeys.MyTeams);
+    navigation.navigate(ScreenNameKeys.MyTeams, {showbttn:false});
     // setIsData(false);
     // showbttn == false;
     
@@ -130,15 +130,15 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
           </View>
 
           {/* ******************* Add Button ********************* */}
-          {/* {showbttn ?   */}
+          {showbttn ?  
           <View
             style={styles.buttonView}>
             <TouchableOpacity onPress={() => addfav(item)} style={styles.btn}>
               <Text style={styles.btnTxt}>{Strings.common.add}</Text>
             </TouchableOpacity>
           </View> 
-          {/* : null
-           } */}
+           : null
+           } 
         </View>
 
       </TouchableOpacity>
@@ -177,16 +177,16 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
         />
       </View>
       
-      {/* {showbttn && isData ?   */}
+      {showbttn  ?  
       
       <View style={styles.nextBtn}>
        <TouchableOpacity onPress={addfavteamname} style={styles.btn}>
        <Text style={styles.btnTxt}> {Strings.splash.next}</Text>
         </TouchableOpacity>
         </View>
-       {/* : null */}
-      {/* // <Button title='done' onPress={addfavteamname} /> : null */}
-    {/* } */}
+        : null 
+      // {/* // <Button title='done' onPress={addfavteamname} /> : null */}
+     } 
 
       <FlatList
         data={filteredData}
