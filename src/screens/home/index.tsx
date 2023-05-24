@@ -33,7 +33,7 @@ const Home = () => {
      <Text style={styles.heading}>{Strings.home.trending}</Text>
 
       {/* ******************* Upcomming Matches ********************* */}
-      <Swiper autoplay paginationStyle={{ position: 'absolute', bottom: 300 }} dot={<View style={styles.inactiveDot}></View>} activeDot={<View style={styles.activeDot}></View>}>
+      <Swiper autoplay paginationStyle={{ position: 'absolute', bottom: 250 }} dot={<View style={styles.inactiveDot}></View>} activeDot={<View style={styles.activeDot}></View>}>
 
         {/* ****** Swiper Slider 1 ****** */}
 

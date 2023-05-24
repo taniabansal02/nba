@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
         color: colors.white,
       },
       list : {
-        marginBottom:124
+        marginBottom: 10,
       }
       
 });

@@ -73,7 +73,7 @@ export const Strings = {
       teamAbb : 'Team Abb',
       empty : ' Team name cannot be empty',
       alphabets : 'Enter first letter capital',
-      length: 'Team name should be of atleast 6 alphabets'
+      length: 'Team name should be of atleast 3 alphabets'
 
    },
    games  : {

@@ -33,7 +33,7 @@ const MyTeams = () => {
         setIsError(Strings.teams.alphabets);
         return null;
     }
-    else if(teamname.length < 6){
+    else if(teamname.length < 3){
         setIsError(Strings.teams.length);
         return null;
     }
