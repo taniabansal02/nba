@@ -87,19 +87,6 @@ const TeamsData = () => {
             </View>
           </View>
 
-
-
-          {/* ******************* Add Button ********************* */}
-          <View
-            style={styles.buttonView}>
-            <TouchableOpacity
-              style={styles.btn}>
-              <Text
-                style={styles.btnTxt}>
-                {Strings.common.follow}
-              </Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </TouchableOpacity>
     );

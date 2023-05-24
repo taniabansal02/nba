@@ -1,11 +1,11 @@
-import React, {useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity,  TextInput, Button } from 'react-native';
 import { styles } from './style';
 import pngIcon from '../../../../assets/icons';
 import { useQuery } from 'react-query';
-import axios, { all } from 'axios';
+import axios from 'axios';
 import { Strings } from '../../../../strings';
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation} from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ScreenNameKeys } from '../../../../utils/constants/screenKey';
 import { colors } from '../../../../assets/theme/colors';
@@ -18,12 +18,11 @@ interface Playerdata {
 const PlayersData = ({ teamname, showbttn }: Playerdata) => {
   
   const navigation = useNavigation();
-  const isFocus = useIsFocused();
   const [searchText, setSearchText] = useState('');
-  // const [isData, setIsData] = useState(false);
-  // const [showbutton, setShowbutton] = useState(false);
-  // console.log('showbttn',showbttn)
-  // if(showbttn!= undefined){setShowbutton(showbttn);}
+  const [isData, setIsData] = useState(false);
+  
+ 
+  
   
   {/* ******************* Random colors ********************* */ }
   const generateColor = () => {
@@ -46,7 +45,9 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
     const setplayer = allplayer ? JSON.parse(allplayer) : [];
     const final = [...setplayer, item];
     await AsyncStorage.setItem(teamname, JSON.stringify(final));
-    // setIsData(true);
+    
+    setIsData(true);
+    
   }
 
 
@@ -57,10 +58,8 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
     const settteam = allteam ? JSON.parse(allteam) : [];
     const finalteam = [...settteam, teamname];
     await AsyncStorage.setItem('currentTeams', JSON.stringify(finalteam));
-    navigation.navigate(ScreenNameKeys.MyTeams, {showbttn:false});
-    // setIsData(false);
-    // showbttn == false;
-    
+    navigation.navigate(ScreenNameKeys.MyTeams);
+    setIsData(false);
     
   }
 
@@ -130,7 +129,7 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
           </View>
 
           {/* ******************* Add Button ********************* */}
-          {showbttn ?  
+          { showbttn ?  
           <View
             style={styles.buttonView}>
             <TouchableOpacity onPress={() => addfav(item)} style={styles.btn}>
@@ -155,11 +154,7 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
   });
  
 
-// if(isFocus)
-// {
-//   console.log('isData->' , isData);
-//     console.log('showbttn->' , showbttn);
-// }
+
 
   return (
     <View>
@@ -177,7 +172,7 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
         />
       </View>
       
-      {showbttn  ?  
+      {showbttn && isData  ?  
       
       <View style={styles.nextBtn}>
        <TouchableOpacity onPress={addfavteamname} style={styles.btn}>
@@ -185,7 +180,6 @@ const PlayersData = ({ teamname, showbttn }: Playerdata) => {
         </TouchableOpacity>
         </View>
         : null 
-      // {/* // <Button title='done' onPress={addfavteamname} /> : null */}
      } 
 
       <FlatList

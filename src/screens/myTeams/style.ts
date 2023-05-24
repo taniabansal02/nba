@@ -79,4 +79,8 @@ export const styles = StyleSheet.create({
     marginTop: 30,
     gap: -10,
   },
+  list : {
+    marginBottom:87
+  },
+  error: {color:'red', fontFamily: fonts.MerriMedium, fontSize:15, marginLeft: 13, marginTop: 4}
 });

@@ -1,7 +1,7 @@
 export const Strings = {
    common : {
       home : 'HOME',
-      games : 'GAMES',
+      games : 'Browse Games',
       teams : 'Browse Team',
       players : 'Browse Player',
       videos : 'VIDEOS',
@@ -70,7 +70,10 @@ export const Strings = {
       division : 'Division',
       city : 'City',
       conference : 'Conference',
-      teamAbb : 'Team Abb'
+      teamAbb : 'Team Abb',
+      empty : ' Team name cannot be empty',
+      alphabets : 'Enter first letter capital',
+      length: 'Team name should be of atleast 6 alphabets'
 
    },
    games  : {

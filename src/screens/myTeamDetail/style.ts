@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     marginBottom: 15 
   },
       teamView: {
+        
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 1,
@@ -46,6 +47,9 @@ export const styles = StyleSheet.create({
       },
       text:{
         color: colors.white,
+      },
+      list : {
+        marginBottom:124
       }
       
 });

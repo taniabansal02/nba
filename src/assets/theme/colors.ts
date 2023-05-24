@@ -12,6 +12,7 @@ const palette = {
     cardbg : '#DBF0E9',
     splashColor : '#F6AD76',
     btncolor : '#282E46',
+   
 };
 
 export const colors = {

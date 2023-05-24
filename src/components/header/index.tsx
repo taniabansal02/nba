@@ -6,7 +6,7 @@ import pngIcon from "../../assets/icons";
 interface Props{
     img ?: any,
     title ?: string,
-    fun ?: Function,
+    fun ?: any,
 }
 
 const Header = ({img, title, fun} : Props) => {
@@ -14,7 +14,7 @@ const Header = ({img, title, fun} : Props) => {
         <View
         style={styles.headerView}>
           <TouchableOpacity onPress={() => fun()}>
-          <Image source={img} style={{marginLeft: 10}} />
+          <Image source={img} style={styles.backArrow} />
           </TouchableOpacity>
         
         <Text 

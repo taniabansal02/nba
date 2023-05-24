@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
 import fonts from '../../assets/fonts';
+import { colors } from '../../assets/theme/colors';
 export const styles = StyleSheet.create({
    cardView: {
-    backgroundColor:'#ffffff', 
+    backgroundColor:colors.white, 
     height:40, 
 },
 cardRow: {
@@ -12,12 +13,12 @@ cardRow: {
     marginHorizontal:15,  
 },
 titleTxt : {
-    color:'#7d7d7d', 
+    color:colors.lightGreyText, 
     fontFamily:fonts.MerriLight, 
     fontSize: 17
 },
 valText : {
-    color:'black', 
+    color: colors.black, 
     fontFamily:fonts.MerriLight, 
     fontSize: 17
 }

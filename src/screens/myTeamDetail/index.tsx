@@ -46,7 +46,7 @@ const MyTeamDetail = (params) => {
           {/* ******************* Team Details ********************* */}
           <View style={styles.teamDetails}>
             <View style={styles.teamRow}>
-              <Text style={styles.teamName}>{item?.item?.first_name ? item?.item?.first_name : null}{' '}</Text>
+              <Text style={styles.teamName}>{item?.item?.first_name ? item?.item?.first_name : null}{ }</Text>
               <Text style={styles.teamName}>{item?.item?.last_name ? item?.item?.last_name : null}</Text>
             </View>
 
@@ -59,12 +59,12 @@ const MyTeamDetail = (params) => {
         )
      }
     return(
-        <View style={{backgroundColor:colors.greybg}}>
+        <View style={{backgroundColor:colors.bg, flex:1}}>
             <Header img={pngIcon.backArrow} title={key} fun={() => navigateToMyTeams()}/>
             <Text style={styles.heading}> 
                 {Strings.teams.listOfPlayers}
             </Text>
-            <FlatList data={data} renderItem={renderItem}/>
+            <FlatList style={styles.list} data={data} renderItem={renderItem}/>
         </View>
     );
 };

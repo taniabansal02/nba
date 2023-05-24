@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import fonts from '../../assets/fonts';
+import { colors } from '../../assets/theme/colors';
 
 export const styles = StyleSheet.create({
   mainView: {
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    backgroundColor: '#01b288',
+    backgroundColor: colors.headerBg,
     height: 60,
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -17,7 +18,7 @@ export const styles = StyleSheet.create({
     marginLeft:20
   },
   headerTxt:{
-    color:'white', 
+    color: colors.white, 
     fontFamily:fonts.MerriBold, 
     fontSize:20
   },
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   profileView: {
-    backgroundColor: '#e7ebe7',
+    backgroundColor: colors.bg,
     flex: 1,
   },
   imgView: {
@@ -41,7 +42,7 @@ export const styles = StyleSheet.create({
   heading: {
     marginTop: 8,
     marginLeft: 10,
-    color: '#434746',
+    color: colors.greyHeading,
     fontFamily: fonts.MerriRegular,
     fontSize: 18,
     marginBottom: 8,

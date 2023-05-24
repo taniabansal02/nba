@@ -4,7 +4,6 @@ import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { ScreenNameKeys } from '../../utils/constants/screenKey';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from '../../components/header';
-import pngIcon from '../../assets/icons';
 import { Strings } from '../../strings';
 import { styles } from './style';
 import { colors } from '../../assets/theme/colors';
@@ -15,43 +14,42 @@ const MyTeams = () => {
     const [teamname, setTeamname] = useState('');
     const[isError, setIsError] = useState('');
 
-    // const navigateToPlayers = () => {
-    //     navigation.navigate(ScreenNameKeys.Players, { teamname: teamname, showbttn: true });
-    // }
-
-    const navigateToHome = () => {
-        navigation.navigate(ScreenNameKeys.Home)
-    }
-
-    const getteamnames = async () => {
+    { /* ******************* Get Team names ********************* */ }
+    const getTeamNames = async () => {
         const mylist = await AsyncStorage.getItem('currentTeams');
         const final = mylist ? JSON.parse(mylist) : []
         setdata(final);
     }
 
+    { /* ******************* Validations ********************* */ }
    const validate = () => {
+    let firstregex = /^[A-Z][a-z]*$/;
+
     if(teamname.trim() === ''){
-        console.warn('Team name cannot be empty');
+        setIsError(Strings.teams.empty);
         return null;
     }
-    // else if(alreadyExist(teamname)){
-    //     setIsError('Team name should be unique');
-    //     return null;
-    // }
+    else if (!firstregex.test(teamname)){
+        setIsError(Strings.teams.alphabets);
+        return null;
+    }
+    else if(teamname.length < 6){
+        setIsError(Strings.teams.length);
+        return null;
+    }
     else{
         navigation.navigate(ScreenNameKeys.Players, { teamname: teamname, showbttn: true });
     }
    }
 
-//    const alreadyExist = (newTeamName) => {
-//     return data.match(newTeamName);
-//    }
-
+   { /* ******************* Sendind team name to team detail page ********************* */ }
     const isfocused = useIsFocused();
-    const itemclik = (item) => {
+    const itemClick = (item) => {
         navigation.navigate(ScreenNameKeys.MyTeamDetail, { item })
     }
 
+
+    { /* ******************* Delete team logic ********************* */ }
     const deleteTeam = async (index) => {
         const tempData = data;
         const selectedData = tempData.filter((item, ind) => {
@@ -61,11 +59,12 @@ const MyTeams = () => {
         await AsyncStorage.setItem('currentTeams', JSON.stringify(selectedData));
     }
     useEffect(() => {
-        getteamnames();
+        getTeamNames();
     }, [isfocused]);
+
     const renderItem = ({ item, index }) => {
         return (
-            <TouchableOpacity onPress={() => itemclik(item)}>
+            <TouchableOpacity onPress={() => itemClick(item)}>
                 <View style={styles.teamView}>
 
                     {/* ******************* My team Details ********************* */}
@@ -75,7 +74,7 @@ const MyTeams = () => {
                         </View>
                     </View>
 
-                    {/* ******************* Delete Data ********************* */}
+                    {/* ******************* Delete Button ********************* */}
                     <View style={styles.buttonView}>
                         <TouchableOpacity onPress={() => deleteTeam(index)} style={styles.btn}>
                             <Text style={styles.btnTxt}> {Strings.common.delete} </Text>
@@ -90,7 +89,7 @@ const MyTeams = () => {
 
     return (
         <View style={styles.container}>
-            <Header img={pngIcon.backArrow} title={Strings.teams.myTeam} fun={() => navigateToHome()}/>
+            <Header title={Strings.teams.myTeam}/>
             <View style={styles.teamRow}>
                 <View style={styles.inputView}>
                     <TextInput
@@ -110,9 +109,10 @@ const MyTeams = () => {
                     </Text>
                 </TouchableOpacity>
             </View>
+            <Text style={styles.error}> {isError}</Text>
             <Text style={styles.heading}> {Strings.teams.listOfTeams} </Text>
 
-            <FlatList renderItem={renderItem} data={data} />
+            <FlatList style={styles.list} renderItem={renderItem} data={data} />
         </View>
     )
 };
